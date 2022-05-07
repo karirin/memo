@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-0": {
+            "MyApp": "src"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "*",
+        "ext-exif": "*",
+        "ext-mbstring": "*"
+    }
+}
