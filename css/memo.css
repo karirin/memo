@@ -1,0 +1,344 @@
+/* ///////////////////////// */
+
+
+/*     投稿一覧、詳細画面     */
+
+
+/* ///////////////////////// */
+
+.memo {
+    display: block;
+    text-align: center;
+}
+
+.memo .memo_list {
+    display: inline-block;
+    border: 0.1rem solid rgb(163, 163, 163);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.3rem 0;
+    width: 150%;
+}
+
+.memo .memo_list .memo_created_at {
+    text-align: right;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.memo .memo_list .memo_img {
+    width: 10rem;
+    height: 10rem;
+    border: 0.01rem solid rgb(221, 221, 221);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.memo .memo_list .memo_info {
+    display: flex;
+    justify-content: space-around;
+    vertical-align: top;
+}
+
+.memo .memo_list .comment {
+    border-top: 0.1rem solid rgb(163, 163, 163);
+    border-bottom: 0.1rem solid rgb(163, 163, 163);
+    padding: 1rem 1rem 0 1rem;
+    width: 100%;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.memo .memo_list .comment .comment_info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.memo .memo_list .comment .comment_info .memo_comment_count {
+    vertical-align: middle;
+}
+
+.memo .memo_list .comment .delete_btn {
+    margin: 0;
+    padding: 0;
+}
+
+.memo .memo_list .comment p.comment_image {
+    display: block;
+}
+
+.memo .memo_list .comment p.comment_image img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.memo .memo_list .comment_created_at {
+    text-align: right;
+    display: block;
+}
+
+.memo .memo_list .comment .user_info {
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+.memo .memo_list .comment .user_info:hover {
+    color: #0056b3;
+}
+
+.memo .memo_list .comment .user_info img {
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}
+
+.memo .memo_list .comment .comment_text {
+    text-align: left;
+    display: block;
+    margin: 1rem;
+}
+
+.memo .memo_list .memo_info .comment_btn {
+    padding: 0;
+}
+
+.memo .memo_list .memo_info .delete_btn {
+    padding: 0;
+}
+
+.memo .memo_list .memo_info .memo_content {
+    word-wrap: break-word;
+}
+
+.memo .memo_list a i {
+    color: rgb(0, 0, 0);
+}
+
+.memo .memo_list a i:hover {
+    opacity: 0.5;
+}
+
+.memo img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.memo .memo_text {
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.memo .memo_user {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+.memo .memo_user a {
+    color: rgb(0, 0, 0);
+}
+
+.memo .memo_user a:hover {
+    color: #0056b3;
+}
+
+.memo .memo_user img {
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}
+
+.memo .favorite_count {
+    display: inline;
+}
+
+.memo .favorite_count .favorite_btn {
+    padding: 0;
+    margin-top: -0.3rem;
+}
+
+.memo_link {
+    color: rgb(0, 0, 0);
+}
+
+.memo_link:hover {
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
+}
+
+#memo:disabled {
+    color: #b8b8b8;
+    border-color: #b8b8b8;
+    cursor: default;
+}
+
+.memo_edit {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.memo_btn,
+.memo_btn {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.memo_btn .far.fa-image,
+.memo_btn .far.fa-image {
+    margin-top: 0.7rem;
+}
+
+.memo_btn .far.fa-image:hover,
+.memo_btn .far.fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.memo .memo_list .memo_info .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.memo_image {
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.memo_image p .memo_preview,
+.memo_image p .memo_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.memo img.edit_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.memo_index.col-3 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.memo img.comment_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+
+/* ///////////////////////// */
+
+
+/*      コメント詳細画面      */
+
+
+/* ///////////////////////// */
+
+.comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.reply_comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.reply_comment_confirmation .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.memo .memo_list .reply_comment {
+    border-top: 0.1rem solid rgb(163, 163, 163);
+    padding: 1rem;
+}
+
+.memo .memo_list .reply_comment:last-child {
+    border-bottom: 0.1rem solid rgb(163, 163, 163);
+    margin-bottom: 1rem;
+}
+
+.memo .memo_list .reply_comment .delete_btn {
+    margin: 0;
+    padding: 0;
+}
+
+.memo .memo_list .reply_comment p.comment_image img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.memo .memo_list .reply_comment .user_info {
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+.memo .memo_list .reply_comment .user_info:hover {
+    color: #0056b3;
+}
+
+.memo .memo_list .reply_comment .user_info img {
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}
+
+
+/* ///////////////////////// */
+
+
+/*    メッセージリスト画面    */
+
+
+/* ///////////////////////// */
+
+.destination_user_list .memo_content {
+    text-align: center;
+}

@@ -8,12 +8,16 @@
             <i class="fas fa-star"></i>
             <?php endif; ?>
         </button>
-        <span class="memo_count"><?= current(get_memo_favorite_count($memo['id'])) ?></span>
+        <?php
+        $memo_class = new Memo($memo['id']);
+        $memo = $memo_class->get_memo();
+        ?>
+        <span class="memo_count"><?= current($memo_class->get_memo_favorite_count()) ?></span>
     </form>
     <div class="memo_comment_count">
         <button class="btn modal_btn" data-target="#modal<?= $memo['id'] ?>" type="button" data-toggle="memo"
             title="投稿"><i class="fas fa-comment-dots"></i></button>
-        <span class="memo_comment_count"><?= current(get_memo_comment_count($memo['id'])) ?></span>
+        <span class="memo_comment_count"><?= current($memo_class->get_memo_comment_count()) ?></span>
     </div>
     <div class="comment_confirmation" id="modal<?= $memo['id'] ?>">
         <p class="modal_title">この投稿にコメントしますか？</p>
