@@ -194,117 +194,76 @@ class User
   }
 }
 
-class Post
+class Comment
 {
-  public function __construct($post_id)
+  public function __construct($comment_id)
   {
-    $this->id = $post_id;
+    $this->id = $comment_id;
   }
 
-  function get_post()
+  function get_comment()
   {
     try {
       $dbh = db_connect();
       $sql = "SELECT *
-            FROM post
+            FROM comment
             WHERE id = :id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
-      _debug('投稿取得失敗');
-    }
-  }
-  //　お気に入りの投稿数を取得する
-  function get_post_favorite_count()
-  {
-    try {
-      $dbh = db_connect();
-      $sql = "SELECT COUNT(user_id)
-          FROM favorite
-          WHERE post_id = :post_id";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':post_id' => $this->id));
-      return $stmt->fetch();
-    } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
-      _debug('お気に入り投稿数取得失敗');
+      _debug('コメント取得失敗');
     }
   }
 
-  //　投稿IDからコメントを取得する
-  function get_post_comment_count()
+  //　コメントへの返信コメント数を取得する
+  function get_reply_comment_count()
   {
     try {
       $dbh = db_connect();
       $sql = "SELECT COUNT(id)
           FROM comment
-          WHERE post_id = :post_id";
+          WHERE comment_id = :comment_id";
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':post_id' => $this->id));
+      $stmt->execute(array(':comment_id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
-      _debug('投稿からコメント取得失敗');
+      _debug('返信コメント取得失敗');
     }
   }
-
-  //　投稿を複数取得する
-  function get_posts($user_id, $type, $query)
+  //  複数のコメントを取得する
+  function get_comments($memo_id)
   {
     try {
       $dbh = db_connect();
-      switch ($type) {
-        case 'all':
-          $sql = "SELECT *
-              FROM post
-              ORDER BY created_at DESC";
-          $stmt = $dbh->prepare($sql);
-          break;
-          //　自分の投稿を取得する
-        case 'my_post':
-          $sql = "SELECT *
-              FROM user INNER JOIN post ON user.id = post.user_id
-              WHERE user_id = :id
-              ORDER BY created_at DESC";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':id', $user_id);
-          break;
-          //　お気に入り登録した投稿を取得する
-        case 'favorite':
-          $sql = "SELECT post.id,post.text,post.image,post.user_id,post.created_at
-              FROM post INNER JOIN favorite ON post.id = favorite.post_id
-              INNER JOIN user ON user.id = post.user_id
-              WHERE favorite.user_id = :id
-              ORDER BY created_at DESC";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':id', $user_id);
-          break;
-          //　フォローしているユーザーの投稿を取得する
-        case 'follow':
-          $sql = "SELECT *
-                FROM post INNER JOIN relation ON post.user_id = relation.follower_id
-                WHERE relation.follow_id = :id
-                ORDER BY created_at DESC";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':id', $user_id);
-          break;
-          //　検索結果の投稿を取得する
-        case 'search':
-          $sql = "SELECT *
-                FROM post
-                WHERE text LIKE CONCAT('%',:input,'%')
-                ORDER BY id DESC";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':input', $query);
-          break;
-      }
-      $stmt->execute();
+      $sql = "SELECT *
+            FROM comment
+            WHERE memo_id = :id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':id' => $memo_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
-      _debug('複数の投稿取得失敗');
+      _debug('複数コメント取得失敗');
+    }
+  }
+
+  //  コメントへの返信コメントを取得する
+  function get_reply_comments($memo_id)
+  {
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT *
+            FROM comment
+            WHERE memo_id = :id AND comment_id = :comment_id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':id' => $memo_id, ':comment_id' => $this->id));
+      return $stmt->fetchAll();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('返信コメント取得失敗');
     }
   }
 }

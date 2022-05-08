@@ -1,14 +1,16 @@
 <?php
-require_once('../config.php');
-$js_file = 'memo';
+require_once('../config_1.php');
 ?>
 
 <body>
     <?php
     $memo_id = $_GET['memo_id'];
-    $memo = get_memo($memo_id);
-    $memo_user = get_user($memo['user_id']);
-    $current_user = get_user($_SESSION['user_id']);
+    $memo_class = new Memo($memo_id);
+    $memo = $memo_class->get_memo($memo_id);
+    $user_class = new User($memo['user_id']);
+    $memo_user = $user_class->get_user();
+    $user_class = new User($_SESSION['user_id']);
+    $current_user = $user_class->get_user();
     ?>
     <div class="col-8 offset-2">
         <div class="memo">
@@ -17,7 +19,7 @@ $js_file = 'memo';
                     <object>
                         <a
                             href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $memo_user['id'] ?>&type=main">
-                            <img src="/user/image/<?= $memo_user['image'] ?>">
+                            <img src="data:image/jpeg;base64,<?= $memo_user['image'] ?>">
                             <?php print '' . $memo_user['name'] . ''; ?>
                         </a>
                     </object>
@@ -25,33 +27,35 @@ $js_file = 'memo';
                 <div class="memo_text" id="memo_text"><?php print '' . $memo['text'] . ''; ?></div>
                 <?php
                 if (!empty($memo['image'])) {
-                    print '<img src="/memo/image/' . $memo['image'] . '" class="memo_img" >';
+                    print '<img src="data:image/jpeg;base64,"' . $memo['image'] . '" class="memo_img" >';
                 }
                 ?>
                 <?php require('memo_info.php'); ?>
                 　<p class="memo_created_at"><?php print '' . convert_to_fuzzy_time($memo['created_at']) . ''; ?></p>
                 <?php
-                $comments = get_comments($memo['id']);
+                $comment_class = new Comment($memo['id']);
+                $comments = $comment_class->get_comments($memo['id']);
                 foreach ($comments as $comment) :
-                    $reply_comments = get_reply_comments($memo['id'], $comment['id']);
+                    $reply_comments = $comment_class->get_reply_comments($memo['id']);
                     if (empty($comment['comment_id'])) :
                 ?>
                 <div class="comment">
                     <?php
-                            $comment_user = get_user($comment['user_id']);
+                            $user_class = new User($comment['user_id']);
+                            $comment_user = $user_class->get_user();
                             ?>
 
                     <object><a
                             href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
                             <div class="user_info">
-                                <img src="/user/image/<?= $comment_user['image'] ?>">
+                                <img src="data:image/jpeg;base64,<?= $comment_user['image'] ?>">
                                 <?php print '' . $comment_user['name'] . ''; ?>
                             </div>
                         </a></object>
                     <span class="comment_text"><?= $comment['text'] ?></span>
                     <?php
                             if (!empty($comment['image'])) {
-                                print '<p class="comment_image"><img src="../comment/image/' . $comment['image'] . '"></p>';
+                                print '<p class="comment_image"><img src="data:image/jpeg;base64,' . $comment['image'] . '"></p>';
                             }
                             ?>
 
@@ -77,7 +81,7 @@ $js_file = 'memo';
                             <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"
                                 data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
                             <span
-                                class="memo_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
+                                class="memo_comment_count"><?= current($comment_class->get_reply_comment_count()) ?></span>
                         </div>
                         <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
                             <p class="modal_title">このコメントに返信しますか？</p>
@@ -111,7 +115,8 @@ $js_file = 'memo';
                             print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
                             foreach ($reply_comments as $reply_comment) :
                                 if ($reply_comment['comment_id'] == $comment['id']) :
-                                    $reply_comment_user = get_user($reply_comment['user_id']);
+                                    $user_class = new User($reply_comment['user_id']);
+                                    $reply_comment_user = $user_class->get_user();
                             ?>
 
                     <div class="reply">
@@ -119,14 +124,14 @@ $js_file = 'memo';
                             <object><a
                                     href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>&type=all">
                                     <div class="user_info">
-                                        <img src="/user/image/<?= $reply_comment_user['image'] ?>">
+                                        <img src="data:image/jpeg;base64,<?= $reply_comment_user['image'] ?>">
                                         <?php print '' . $reply_comment_user['name'] . ''; ?>
                                     </div>
                             </object></a>
                             <?php
                                             print '<span class="comment_text">' . $reply_comment['text'] . '</span>';
                                             if (!empty($reply_comment['image'])) {
-                                                print '<p class="comment_image"><img src="../comment/image/' . $reply_comment['image'] . '"></p>';
+                                                print '<p class="comment_image"><img src="data:image/jpeg;base64,' . $reply_comment['image'] . '"></p>';
                                             }
                                             if ($memo['user_id'] == $current_user['id']) :
                                             ?>

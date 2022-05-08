@@ -1349,7 +1349,6 @@ $(document).on('click', '.far.fa-times-circle.licence_narrower', function() {
     }
 });
 
-
 $(document).on('click', '.edit_done', function() {
     var licence = document.getElementById("licence"),
         licence_narrow = document.getElementById("licence_narrow"),

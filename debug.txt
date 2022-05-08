@@ -1,133 +1,20 @@
-23   24SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESCArray
+Array
 (
-    [name] => 
-    [full_path] => 
-    [type] => 
-    [tmp_name] => 
-    [error] => 4
-    [size] => 0
-)
-23   24SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESCArray
-(
-    [name] => 
-    [full_path] => 
-    [type] => 
-    [tmp_name] => 
-    [error] => 4
-    [size] => 0
-)
-23   24SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESC24   23SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESCArray
-(
-    [id] => 561
-    [0] => 561
-    [text] => よろしくお願いします！
-    [1] => よろしくお願いします！
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 24
-    [4] => 24
-    [created_at] => 2022-05-06 22:30:14
-    [5] => 2022-05-06 22:30:14
-)
-24   23SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESC24   23SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESC24   23SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESCArray
-(
-    [name] => 
-    [full_path] => 
-    [type] => 
-    [tmp_name] => 
-    [error] => 4
-    [size] => 0
+    [memo_id] => 12
+    [memo_text] => testaaa
 )
 Array
 (
-    [name] => 
-    [full_path] => 
-    [type] => 
-    [tmp_name] => 
-    [error] => 4
-    [size] => 0
+    [memo_id] => 11
+    [memo_text] => testeee
 )
 Array
 (
-    [name] => 
-    [full_path] => 
-    [type] => 
-    [tmp_name] => 
-    [error] => 4
-    [size] => 0
+    [memo_id] => 11
+    [memo_text] => testeeeaaa
 )
 Array
 (
-    [id] => 563
-    [0] => 563
-    [text] => よろしくおねがいします！
-    [1] => よろしくおねがいします！
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 24
-    [4] => 24
-    [created_at] => 2022-05-06 23:03:17
-    [5] => 2022-05-06 23:03:17
-)
-Array
-(
-    [id] => 564
-    [0] => 564
-    [text] => マッチありがとうございます！
-    [1] => マッチありがとうございます！
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 25
-    [4] => 25
-    [created_at] => 2022-05-06 23:03:39
-    [5] => 2022-05-06 23:03:39
-)
-Array
-(
-    [id] => 563
-    [0] => 563
-    [text] => よろしくおねがいします！
-    [1] => よろしくおねがいします！
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 24
-    [4] => 24
-    [created_at] => 2022-05-06 23:03:17
-    [5] => 2022-05-06 23:03:17
+    [memo_id] => 12
+    [memo_text] => testaaaccc
 )
