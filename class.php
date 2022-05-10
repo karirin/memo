@@ -337,21 +337,13 @@ class Memo
           $stmt = $dbh->prepare($sql);
           break;
           //　自分の投稿を取得する
-        case 'my_memo':
-          $sql = "SELECT *
-              FROM user INNER JOIN memo ON user.id = memo.user_id
-              WHERE user_id = :id
-              ORDER BY created_at DESC";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':id', $user_id);
-          break;
-          //　お気に入り登録した投稿を取得する
-        case 'favorite':
-          $sql = "SELECT memo.id,memo.text,memo.image,memo.user_id,memo.created_at
-              FROM memo INNER JOIN favorite ON memo.id = favorite.memo_id
-              INNER JOIN user ON user.id = memo.user_id
-              WHERE favorite.user_id = :id
-              ORDER BY created_at DESC";
+        case 'mymemo':
+          $sql = "SELECT memo.id,memo.text,memo.image,memo.user_id,memo.created_at,favorite.memo_id
+          FROM memo LEFT OUTER JOIN favorite ON memo.id = favorite.memo_id
+          INNER JOIN user ON user.id = memo.user_id
+          WHERE memo.user_id = :id
+          order by favorite.memo_id DESC";
+          _debug($user_id);
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':id', $user_id);
           break;

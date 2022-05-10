@@ -19,8 +19,9 @@ $user = new User($_SESSION['user_id']);
                     $memos = $memo->get_memos('', 'all', 0);
                     break;
 
-                case 'match':
-                    $memos = $memo->get_memos('', 'all', 0);
+                case 'mymemo':
+                    $memos = $memo->get_memos($_SESSION['user_id'], 'mymemo', 0);
+                    _debug($memos);
                     break;
 
                 case 'search':
