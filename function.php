@@ -58,6 +58,7 @@ function image_check($image)
 //  お気に入りの重複を確認する
 function check_favolite_duplicate($user_id, $memo_id)
 {
+  _debug("test");
   $dbh = db_connect();
   $sql = "SELECT *
           FROM favorite
@@ -67,6 +68,7 @@ function check_favolite_duplicate($user_id, $memo_id)
     ':user_id' => $user_id,
     ':memo_id' => $memo_id
   ));
+
   $favorite = $stmt->fetch();
   return $favorite;
 }

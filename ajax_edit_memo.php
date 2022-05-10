@@ -6,7 +6,6 @@ if (isset($_POST)) {
   $current_user = $user->get_user();
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
-  _debug($_POST);
 
   try {
     $dbh = db_connect();

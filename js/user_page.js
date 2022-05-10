@@ -164,21 +164,6 @@ $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('c
 // ajax処理
 //================================
 
-// いいね機能処理
-$(document).on('click', '.favorite_btn', function(e) {
-    e.stopPropagation();
-    var $this = $(this),
-        post_id = $this.prev().val();
-    $.ajax({
-        type: 'POST',
-        url: '../ajax_post_favorite_process.php',
-        dataType: 'json',
-        data: {
-            post_id: post_id
-        }
-    }).done(function() {}).fail(function() {});
-});
-
 // フォロー機能処理
 $(document).on('click', '.follow_btn', function(e) {
     e.stopPropagation();
