@@ -196,4 +196,2077 @@ testtesttesttesttesttest5test5test11test12test7test8test7Array
         )
 
 )
-testtesttesttesttesttest
+testtesttesttesttesttestユーザー数取得失敗複数ユーザー取得失敗複数ユーザー取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 8
+            [5] => 8
+        )
+
+    [1] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 8
+            [5] => 8
+        )
+
+    [1] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7test7Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 8
+            [5] => 8
+        )
+
+    [1] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 7
+            [5] => 7
+        )
+
+    [2] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 8
+            [5] => 8
+        )
+
+    [1] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 7
+            [5] => 7
+        )
+
+    [2] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttestユーザー数取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 8
+            [5] => 8
+        )
+
+    [1] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 7
+            [5] => 7
+        )
+
+    [2] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7test8test7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest複数ユーザー取得失敗ユーザー数取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttestユーザー数取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 13
+            [0] => 13
+            [text] => テスト
+            [1] => テスト
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:02
+            [4] => 2022-05-10 20:18:02
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttesttestユーザー数取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 13
+            [0] => 13
+            [text] => テスト
+            [1] => テスト
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:02
+            [4] => 2022-05-10 20:18:02
+            [memo_id] => 
+            [5] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 14
+            [0] => 14
+            [text] => ｗｗｗ
+            [1] => ｗｗｗ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:07
+            [4] => 2022-05-10 20:18:07
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttesttesttestユーザー数取得失敗ユーザー数取得失敗7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 13
+            [0] => 13
+            [text] => テスト
+            [1] => テスト
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:02
+            [4] => 2022-05-10 20:18:02
+            [memo_id] => 
+            [5] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 14
+            [0] => 14
+            [text] => ｗｗｗ
+            [1] => ｗｗｗ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:07
+            [4] => 2022-05-10 20:18:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 15
+            [0] => 15
+            [text] => てｓｔ
+            [1] => てｓｔ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:19:56
+            [4] => 2022-05-10 20:19:56
+            [memo_id] => 
+            [5] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 16
+            [0] => 16
+            [text] => てｓｔ
+            [1] => てｓｔ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:20:25
+            [4] => 2022-05-10 20:20:25
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttesttesttesttesttest7Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [0] => 5
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:15:07
+            [4] => 2022-04-06 20:15:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 6
+            [0] => 6
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-06 20:16:28
+            [4] => 2022-04-06 20:16:28
+            [memo_id] => 
+            [5] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 7
+            [0] => 7
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-08 10:45:48
+            [4] => 2022-04-08 10:45:48
+            [memo_id] => 
+            [5] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 8
+            [0] => 8
+            [text] => test
+            [1] => test
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-04-10 18:22:25
+            [4] => 2022-04-10 18:22:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 11
+            [0] => 11
+            [text] => testeeeaaa
+            [1] => testeeeaaa
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:33
+            [4] => 2022-05-08 13:18:33
+            [memo_id] => 
+            [5] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 12
+            [0] => 12
+            [text] => testaaaccc
+            [1] => testaaaccc
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-08 13:18:45
+            [4] => 2022-05-08 13:18:45
+            [memo_id] => 
+            [5] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 13
+            [0] => 13
+            [text] => テスト
+            [1] => テスト
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:02
+            [4] => 2022-05-10 20:18:02
+            [memo_id] => 
+            [5] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 14
+            [0] => 14
+            [text] => ｗｗｗ
+            [1] => ｗｗｗ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:18:07
+            [4] => 2022-05-10 20:18:07
+            [memo_id] => 
+            [5] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 15
+            [0] => 15
+            [text] => てｓｔ
+            [1] => てｓｔ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:19:56
+            [4] => 2022-05-10 20:19:56
+            [memo_id] => 
+            [5] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 16
+            [0] => 16
+            [text] => てｓｔ
+            [1] => てｓｔ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:20:25
+            [4] => 2022-05-10 20:20:25
+            [memo_id] => 
+            [5] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 17
+            [0] => 17
+            [text] => てｓｔ
+            [1] => てｓｔ
+            [image] => 
+            [2] => 
+            [user_id] => 7
+            [3] => 7
+            [created_at] => 2022-05-10 20:20:31
+            [4] => 2022-05-10 20:20:31
+            [memo_id] => 
+            [5] => 
+        )
+
+)
+testtesttesttesttesttesttesttesttesttest

@@ -51,7 +51,7 @@ try {
     $dbh = null;
 
     set_flash('sucsess', 'メモしました');
-    header('Location:../user_login/user_top.php?type=main&page_id=current_user');
+    header('Location:../memo/memo_index.php?type=mymemo');
 } catch (Exception $e) {
     print 'ただいま障害により大変ご迷惑をお掛けしております。';
     exit();
