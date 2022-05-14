@@ -7,7 +7,7 @@ if (isset($block[0])) :
 
         $memo_user = $user->get_user($memo['user_id']);
 ?>
-<div class="memo">
+<div class="memo" id="memo_list<?= $memo['id'] ?>" data-target="#memo_list<?= $memo['id'] ?>" data-toggle="memo_list">
 
     <div class="memo_list">
         <input type="text" class="memo_text ellipsis" id="memo<?= $memo['id'] ?>" data-target="#memo<?= $memo['id'] ?>"

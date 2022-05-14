@@ -24,7 +24,6 @@ $user = new User($_SESSION['user_id']);
             </div>
             <div class="memo_btn">
                 <button class="btn btn-outline-danger" type="submit" name="memo" value="memo" id="memo">メモ</button>
-                <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </div>
         </form>
     </div>
@@ -43,7 +42,6 @@ $user = new User($_SESSION['user_id']);
 
                     case 'mymemo':
                         $memos = $memo->get_memos($_SESSION['user_id'], 'mymemo', 0);
-                        _debug($memos);
                         break;
 
                     case 'search':
@@ -53,6 +51,8 @@ $user = new User($_SESSION['user_id']);
                 ?>
             </div>
         </div>
+
+        <div class="ball" style="background-color: #000;width: 10%;height: 10%;"></div>
 
         <?php
         require_once('memo_list.php');

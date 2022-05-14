@@ -48,3 +48,69 @@ $(document).on('click', '.favorite_btn', function(e) {
 
     });
 });
+
+var ball = document.querySelector('.memo');
+
+
+$(document).on('mousedown', '.memo', function(event) {
+    let ball_id = $(this).data("target");
+    let ball = document.querySelector(ball_id);
+    let currentDroppable = null;
+    let shiftX = event.clientX - ball.getBoundingClientRect().left;
+    let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+    //絶対位置で一番上になるように
+    ball.style.position = 'absolute';
+    ball.style.zIndex = 1000;
+
+    //対象オブジェクトをbody要素に追加
+    document.body.append(ball);
+
+    moveAt(event.pageX, event.pageY);
+
+    function moveAt(pageX, pageY) {
+        ball.style.left = pageX - shiftX + 'px';
+        ball.style.top = pageY - shiftY + 'px';
+    }
+
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+
+        ball.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        ball.hidden = false;
+
+        if (!elemBelow) return;
+
+        let droppableBelow = elemBelow.closest('.memo');
+        if (currentDroppable != droppableBelow) {
+            if (currentDroppable) { // null when we were not over a droppable before this event
+                leaveDroppable(currentDroppable);
+            }
+            currentDroppable = droppableBelow;
+            if (currentDroppable) { // null if we're not coming over a droppable now
+                // (maybe just left the droppable)
+                enterDroppable(currentDroppable);
+            }
+        }
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+
+    ball.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        ball.onmouseup = null;
+    };
+});
+
+function enterDroppable(elem) {
+    elem.style.background = 'pink';
+}
+
+function leaveDroppable(elem) {
+    elem.style.background = '';
+}
+
+ball.ondragstart = function() {
+    return false;
+};
