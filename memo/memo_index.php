@@ -52,8 +52,6 @@ $user = new User($_SESSION['user_id']);
             </div>
         </div>
 
-        <div class="ball" style="background-color: #000;width: 10%;height: 10%;"></div>
-
         <?php
         require_once('memo_list.php');
         print '</div>';

@@ -872,7 +872,6 @@ $(document).on('click', '.edit_done', function() {
         skills[i] = spans[i].textContent;
     }
     skills = skills.join(' ');
-    console.log(skills);
     skill_div.value = skills;
     skill_div_narrow.value = skills;
     skill_div_narrower.value = skills;
