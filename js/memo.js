@@ -89,8 +89,8 @@ $(document).on('mousedown', '.memo', function(event) {
             }
             currentDroppable = droppableBelow;
             if (currentDroppable) { // null if we're not coming over a droppable now
-                // (maybe just left the droppable)
                 enterDroppable(currentDroppable);
+
             }
         }
     }
@@ -104,23 +104,22 @@ $(document).on('mousedown', '.memo', function(event) {
 });
 
 function enterDroppable(elem) {
-    memo_id = elem.id.slice(9);
-    memo_text = $("#memo" + memo_id).val();
-    $(document).on('mouseup', '.memo', function(event) {
+    let memo_id = elem.id.slice(9),
+        memo_text = $("#memo" + memo_id).val();
+    $('.memo').on('mouseup', function(event) {
         let ball_target = $(this).data("target"),
             ball = document.querySelector(ball_target),
             ball_id = ball_target.slice(10),
             ball_text = $("#memo" + ball_id).val();
-
         $("#memo" + memo_id).replaceWith('<input class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" value="' + memo_text + ball_text + '">');
         ball.style.display = 'none';
-        ball.idName = '2222222222';
-        console.log(ball); //ドラッグしているメモ情報
+        $('.memo').off();
     });
+
 }
 
 function leaveDroppable(elem) {
-    elem.style.background = '';
+    $('.memo').off();
 }
 
 ball.ondragstart = function() {
