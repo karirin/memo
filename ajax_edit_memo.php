@@ -17,11 +17,24 @@ if (isset($_POST)) {
       ':memo_id' => $memo_id,
       ':memo_text' => $memo_text
     ));
-    set_flash('sucsess', 'プロフィールを更新しました');
-    reload();
   } catch (\Exception $e) {
     error_log($e, 3, "../../php/error.log");
     _debug('メモ更新失敗');
+  }
+
+  if ($_POST["delete_flg"]) {
+    try {
+      $dbh = db_connect();
+      $sql = "DELETE FROM memo
+              WHERE id = :memo_id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(
+        ':memo_id' => $memo_id
+      ));
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('メモ更新失敗');
+    }
   }
 }
 require_once('footer.php');

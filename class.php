@@ -342,7 +342,7 @@ class Memo
           FROM memo LEFT OUTER JOIN favorite ON memo.id = favorite.memo_id
           INNER JOIN user ON user.id = memo.user_id
           WHERE memo.user_id = :id
-          order by favorite.memo_id DESC";
+          order by favorite.memo_id,memo.created_at DESC";
           _debug($user_id);
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':id', $user_id);
