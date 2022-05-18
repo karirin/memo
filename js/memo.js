@@ -119,6 +119,7 @@ function enterDroppable(elem) {
             dataType: 'text',
             data: {
                 memo_id: memo_id,
+                ball_id: ball_id,
                 memo_text: text,
                 delete_flg: delete_flg
             }

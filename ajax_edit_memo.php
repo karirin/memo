@@ -6,6 +6,8 @@ if (isset($_POST)) {
   $current_user = $user->get_user();
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
+  $ball_id = $_POST['ball_id'];
+  _debug($memo_text);
 
   try {
     $dbh = db_connect();
@@ -29,7 +31,7 @@ if (isset($_POST)) {
               WHERE id = :memo_id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(
-        ':memo_id' => $memo_id
+        ':memo_id' => $ball_id
       ));
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
