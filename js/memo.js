@@ -52,7 +52,7 @@ $(document).on('click', '.favorite_btn', function(e) {
 var ball = document.querySelector('.memo');
 
 
-$(document).on('mousedown', '.memo', function(event) {
+$(document).on('dblclick', '.memo', function(event) {
     let ball_id = $(this).data("target");
     let ball = document.querySelector(ball_id);
     let currentDroppable = null;
