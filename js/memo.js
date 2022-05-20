@@ -1,10 +1,9 @@
 // メモ入力処理
-$(document).on('click', '.memo_text', function() {
+$(document).on('click', '.fa-edit', function() {
     var $target_modal = $(this).data("target"),
         $target_id = $target_modal.slice(1),
-        memo_text = $($target_modal).val();
-    $($target_modal).replaceWith('<textarea type="text" name="memo_text" id="edit_' + $target_id + '" >' + memo_text);
-
+        memo_text = $($target_modal).text();
+    $("#" + $target_id).replaceWith('<textarea type="text" name="memo_text" id="edit_' + $target_id + '" >' + memo_text);
     $("#edit_" + $target_id).on('mouseout', function(e) {
         e.stopPropagation();
         var memo_id = $(this).next().val(),
@@ -18,7 +17,7 @@ $(document).on('click', '.memo_text', function() {
                 memo_text: edit_memo_text
             }
         }).done(function() {
-            $("#edit_" + $target_id).replaceWith('<input class="memo_text ellipsis" id="' + $target_id + '" data-target="' + $target_modal + '" data-toggle="memo" value="' + edit_memo_text + '">');
+            $("#edit_" + $target_id).replaceWith('<div class="memo_text ellipsis" id="' + $target_id + '" data-target="' + $target_modal + '" data-toggle="memo">' + edit_memo_text + '</div>');
         }).fail(function() {});
     });
 });

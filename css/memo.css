@@ -130,6 +130,7 @@
     text-align: left;
     white-space: pre-wrap;
     word-wrap: break-word;
+    width: 200px;
 }
 
 .memo .memo_user {

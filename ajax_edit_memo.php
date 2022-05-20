@@ -7,7 +7,6 @@ if (isset($_POST)) {
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
   $ball_id = $_POST['ball_id'];
-  _debug($memo_text);
 
   try {
     $dbh = db_connect();

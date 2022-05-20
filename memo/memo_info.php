@@ -14,6 +14,7 @@
         ?>
         <span id="memo_count_<?= $memo['id'] ?>"><?= current($memo_class->get_memo_favorite_count()) ?></span>
     </form>
+    <i class="fas fa-edit" data-target="#memo<?= $memo['id'] ?>" data-toggle="memo"></i>
     <button class="btn modal_btn" data-target="#delete_modal<?= $memo['id'] ?>" type="button" data-toggle="delete"
         title="削除"><i class="far fa-trash-alt"></i></button>
     <div class="delete_confirmation" id="delete_modal<?= $memo['id'] ?>">
