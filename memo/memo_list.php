@@ -21,7 +21,8 @@ if (isset($block[0])) :
         <p class="memo_created_at"><?php print '' . convert_to_fuzzy_time($memo['created_at']) . ''; ?></p>
 
     </div>
+</div>
 
-    <?php endforeach ?>
-    <?php endif ?>
-    <?php require('../pagination.php'); ?>
+<?php endforeach ?>
+<?php endif ?>
+<?php require('../pagination.php'); ?>

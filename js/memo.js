@@ -104,12 +104,12 @@ $(document).on('dblclick', '.memo', function(event) {
 
 function enterDroppable(elem) {
     let memo_id = elem.id.slice(9),
-        memo_text = $("#memo" + memo_id).val();
+        memo_text = $("#memo" + memo_id).text();
     $('.memo').on('mouseup', function(event) {
         let ball_target = $(this).data("target"),
             ball = document.querySelector(ball_target),
             ball_id = ball_target.slice(10),
-            ball_text = $("#memo" + ball_id).val(),
+            ball_text = $("#memo" + ball_id).text(),
             text = memo_text + ball_text,
             delete_flg = 1;
         $.ajax({
@@ -123,7 +123,7 @@ function enterDroppable(elem) {
                 delete_flg: delete_flg
             }
         }).done(function() {
-            $("#memo" + memo_id).replaceWith('<input class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" value="' + text + '">');
+            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + text + '</div>');
         }).fail(function() {});
         ball.style.display = 'none';
         $('.memo').off();

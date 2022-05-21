@@ -131,6 +131,7 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     width: 200px;
+    display: inline-block;
 }
 
 .memo .memo_user {
