@@ -12,7 +12,6 @@
         $memo_class = new Memo($memo['id']);
         $memo = $memo_class->get_memo();
         ?>
-        <span id="memo_count_<?= $memo['id'] ?>"><?= current($memo_class->get_memo_favorite_count()) ?></span>
     </form>
     <i class="fas fa-edit" data-target="#memo<?= $memo['id'] ?>" data-toggle="memo"></i>
     <button class="btn modal_btn" data-target="#delete_modal<?= $memo['id'] ?>" type="button" data-toggle="delete"

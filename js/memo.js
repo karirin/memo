@@ -26,8 +26,7 @@ $(document).on('click', '.fa-edit', function() {
 $(document).on('click', '.favorite_btn', function(e) {
     e.stopPropagation();
     var memo_id = $(this).prev().val(),
-        memo_star = $("#star_" + memo_id),
-        memo_count = $("#memo_count_" + memo_id);
+        memo_star = $("#star_" + memo_id);
     $.ajax({
         type: 'POST',
         url: '../ajax_memo_favorite_process.php',
@@ -38,10 +37,8 @@ $(document).on('click', '.favorite_btn', function(e) {
     }).done(function(data) {
         if (memo_star.attr('class') == "far fa-star") {
             memo_star.attr('class', 'fas fa-star');
-            memo_count[0].textContent = 1;
         } else {
             memo_star.attr('class', 'far fa-star');
-            memo_count[0].textContent = 0;
         }
     }).fail(function(XMLHttpRequest, status, e) {
 
