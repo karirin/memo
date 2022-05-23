@@ -19,20 +19,8 @@
         ?>
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Pair Code</a></li>
-            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
-            <li class="header_menu"><a href="../message/message_top.php">
-                    message<?php
-                                $message = new Message();
-                                if (current($user->get_user_count('message_relation')) != 0) {
-                                    if (current($message->message_count(($user->id))) != 0) {
-                                        print '' . current($message->message_count(($user->id))) . '';
-                                    }
-                                }
-                                ?>
-                </a></li>
-            <li class="header_menu_wide"><a href="../match/match.php">matching</a></li>
-            <li class="header_menu_wide memo_modal"><a href="#">memo</a></li>
-            <li class="header_menu_wide"><a href="../memo/memo_index.php?type=mymemo">memolist</a></li>
+            <li class="header_menu memo_modal"><a href="#">memo</a></li>
+            <li class="header_menu"><a href="../memo/memo_index.php?type=mymemo">memolist</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
             <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
             <li class="show_menu">menu
@@ -41,26 +29,17 @@
                         <p><i class="fas fa-angle-left"></i></p>
                     </a>
                     <ul>
-                        <a href="../user/user_list.php?type=all">
-                            <li>userlist</li>
-                        </a>
-                        <a href="../message/message_top.php">
-                            <li class="slide_menu_message">
-                                message<?php
-                                            $message = new Message();
-                                            if (current($user->get_user_count('message_relation')) != 0) {
-                                                if (current($message->message_count(($user->id))) != 0) {
-                                                    print '' . current($message->message_count(($user->id))) . '';
-                                                }
-                                            }
-                                            ?>
-                            </li>
-                        </a>
                         <a href="../user_login/user_logout.php">
                             <li>logout</li>
                         </a>
                         <a href="/withdraw.php">
                             <li>withdrawal</li>
+                        </a>
+                        <a href="#">
+                            <li class="slide_menu_message">memo</li>
+                        </a>
+                        <a href="../memo/memo_index.php?type=mymemo">
+                            <li class="slide_menu_message">memolist</li>
                         </a>
                     </ul>
                 </div>

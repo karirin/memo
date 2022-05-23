@@ -105,11 +105,11 @@ $(document).on('dblclick', '.memo', function(event) {
                         ball.style.display = 'block';
                         $('.memo').off();
                     });
-                    $('.before_text').on('click', function() {
+                    $('.before_text').one('click', function() {
                         text_flg = 0;
                         enterDroppable(currentDroppable, ball_target, text_flg);
                     });
-                    $('.after_text').on('click', function() {
+                    $('.after_text').one('click', function() {
                         text_flg = 1;
                         enterDroppable(currentDroppable, ball_target, text_flg);
                     });
@@ -132,8 +132,12 @@ function enterDroppable(elem, ball_target, text_flg) {
         ball = document.querySelector(ball_target),
         ball_id = ball_target.slice(10),
         ball_text = $("#memo" + ball_id).text(),
-        text = memo_text + ball_text,
         delete_flg = 1;
+    if (text_flg == 0) {
+        text = ball_text + memo_text;
+    } else {
+        text = memo_text + ball_text;
+    }
     $(".memo_edit_process").fadeOut();
     $.ajax({
         type: 'POST',
