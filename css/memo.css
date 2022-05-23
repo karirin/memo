@@ -344,3 +344,20 @@
 .destination_user_list .memo_content {
     text-align: center;
 }
+
+
+/* ///////////////////////// */
+
+
+/*        モーダル画面        */
+
+
+/* ///////////////////////// */
+
+.before_text {
+    background-color: red;
+}
+
+.after_text {
+    background-color: blue;
+}

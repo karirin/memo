@@ -1585,6 +1585,7 @@ img.my_preview {
 .withdraw_process,
 .post_process,
 .memo_process,
+.memo_edit_process,
 .match_process {
     display: none;
     position: fixed;
@@ -1603,7 +1604,8 @@ img.my_preview {
 }
 
 .post_process .post_title,
-.memo_process .memo_title {
+.memo_process .memo_title,
+.memo_edit_process .memo_title {
     text-align: center;
 }
 

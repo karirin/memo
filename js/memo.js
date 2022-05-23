@@ -88,8 +88,27 @@ $(document).on('dblclick', '.memo', function(event) {
             }
             currentDroppable = droppableBelow;
             if (currentDroppable) { // null if we're not coming over a droppable now
-                enterDroppable(currentDroppable);
-
+                $('.memo').on('mouseup', function(event) {
+                    let memo_id = currentDroppable.id.slice(9),
+                        memo_text = $("#memo" + memo_id).text(),
+                        ball_target = $(this).data("target"),
+                        ball = document.querySelector(ball_target),
+                        ball_id = ball_target.slice(10),
+                        ball_text = $("#memo" + ball_id).text(),
+                        text = memo_text + ball_text,
+                        delete_flg = 1;
+                    ball.style.display = 'none';
+                    $(".memo_edit_process").fadeIn();
+                    $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモ</h2><p class="modal_memo_text before_text">' + ball_text + '</p><p>' + memo_text + '</p><p class="modal_memo_text after_text">' + ball_text + '</p></div>');
+                    $('.before_text').on('click', function() {
+                        text_flg = 0;
+                        enterDroppable(currentDroppable, ball_target, text_flg);
+                    });
+                    $('.after_text').on('click', function() {
+                        text_flg = 1;
+                        enterDroppable(currentDroppable, ball_target, text_flg);
+                    });
+                });
             }
         }
     }
@@ -102,32 +121,33 @@ $(document).on('dblclick', '.memo', function(event) {
     };
 });
 
-function enterDroppable(elem) {
+function enterDroppable(elem, ball_target, text_flg) {
     let memo_id = elem.id.slice(9),
-        memo_text = $("#memo" + memo_id).text();
-    $('.memo').on('mouseup', function(event) {
-        let ball_target = $(this).data("target"),
-            ball = document.querySelector(ball_target),
-            ball_id = ball_target.slice(10),
-            ball_text = $("#memo" + ball_id).text(),
-            text = memo_text + ball_text,
-            delete_flg = 1;
-        $.ajax({
-            type: 'POST',
-            url: '../ajax_edit_memo.php',
-            dataType: 'text',
-            data: {
-                memo_id: memo_id,
-                ball_id: ball_id,
-                memo_text: text,
-                delete_flg: delete_flg
-            }
-        }).done(function() {
-            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + text + '</div>');
-        }).fail(function() {});
-        ball.style.display = 'none';
-        $('.memo').off();
-    });
+        memo_text = $("#memo" + memo_id).text(),
+        ball = document.querySelector(ball_target),
+        ball_id = ball_target.slice(10),
+        ball_text = $("#memo" + ball_id).text(),
+        text = memo_text + ball_text,
+        delete_flg = 1;
+    $(".memo_edit_process").fadeOut();
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_memo.php',
+        dataType: 'text',
+        data: {
+            memo_id: memo_id,
+            ball_id: ball_id,
+            memo_text: text,
+            delete_flg: delete_flg
+        }
+    }).done(function() {
+        if (text_flg == 0) {
+            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + ball_text + memo_text + '</div>');
+        } else {
+            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + ball_text + '</div>');
+        }
+    }).fail(function() {});
+    $('.memo').off();
 }
 
 function leaveDroppable(elem) {
