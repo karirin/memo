@@ -46,15 +46,9 @@ try {
 			$_SESSION['login'] = 1;
 			$_SESSION['user_id'] = $rec['id'];
 			$_SESSION['user_name'] = $rec['name'];
-			$message = new Message();
-			if (current($message->message_count($_SESSION['user_id'])) != 0) {
-				if (current($user->get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
-					set_flash('sucsess', 'ログインしました		メッセージが' . current($message->message_count($_SESSION['user_id'])) . '件届いています');
-				}
-			} else {
-				set_flash('sucsess', 'ログインしました');
-			}
-			header('Location:user_top.php?page_id=' . $rec['id'] . '&type=main');
+
+			set_flash('sucsess', 'ログインしました');
+			header('Location:../memo/memo_index.php?type=mymemo');
 			exit();
 		}
 	}

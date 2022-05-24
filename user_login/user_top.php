@@ -19,8 +19,8 @@ if (isset($_SESSION['login']) == false) :
 
     <?php else : ?>
 
-    <body>
-        <?php require_once("../user/user_disp.php"); ?>
+    <body class="memo_top">
+        <?php require_once("../memo/memo_index.php"); ?>
         <?php endif; ?>
 
     </body>
