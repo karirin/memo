@@ -96,9 +96,11 @@ $(document).on('dblclick', '.memo', function(event) {
                         delete_flg = 1;
                     ball.style.display = 'none';
                     $(".memo_edit_process").fadeIn();
-                    $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモ</h2><p class="modal_memo_text before_text">' + ball_text + '</p><p>' + memo_text + '</p><p class="modal_memo_text after_text">' + ball_text + '</p><button class="btn btn-outline-primary modal_close" type="button">キャンセル</button></div>');
+                    $(".modal_memo").fadeIn();
+                    $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモを前後どちらに追加しますか？</h2><p class="modal_memo_text before_text">' + ball_text + '</p><p>' + memo_text + '</p><p class="modal_memo_text after_text">' + ball_text + '</p><div class="right"><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
                     $('.modal_close').on('click', function(event) {
                         $(".memo_edit_process").fadeOut();
+                        $(".modal_memo").fadeOut();
                         ball.style.display = 'block';
                         $('.memo').off();
                     });

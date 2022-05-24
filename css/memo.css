@@ -22,7 +22,6 @@
 
 .memo .memo_list {
     display: inline-block;
-    border: 0.1rem solid rgb(163, 163, 163);
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin: 0.3rem 0;
@@ -207,10 +206,27 @@
     border: 0.3rem solid #fff;
 }
 
-.memo_btn,
+.memo_edit_process {
+    background-image: url("../image/paper_00108.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #121212;
+    border: unset;
+}
+
+.memo_edit_process .memo_title {
+    font-size: 22px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
 .memo_btn {
     justify-content: space-evenly;
     display: flex;
+}
+
+.memo_close:hover {
+    opacity: 0.3;
 }
 
 .memo_btn .far.fa-image,
@@ -367,9 +383,9 @@
 /* ///////////////////////// */
 
 .before_text {
-    background-color: red;
+    background-color: #ff54542e;
 }
 
 .after_text {
-    background-color: blue;
+    background-color: #5f5ff82e;
 }
