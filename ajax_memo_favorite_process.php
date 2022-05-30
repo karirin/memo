@@ -6,7 +6,6 @@ if (isset($_POST)) {
   $current_user = $user->get_user();
   echo json_encode($_POST['memo_id']);
   $memo_id = $_POST['memo_id'];
-  _debug($memo_id);
   $memo = new Memo($memo_id);
   //既に登録されているか確認
   if (check_favolite_duplicate($current_user['id'], $memo_id)) {

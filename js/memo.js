@@ -46,12 +46,13 @@ $(document).on('click', '.favorite_btn', function(e) {
 });
 
 var ball = document.querySelector('.memo');
-
+var ball_list = document.querySelector('.memo_list');
 
 $(document).on('dblclick', '.memo', function(event) {
     let ball_id = $(this).data("target");
     let ball = document.querySelector(ball_id);
     let currentDroppable = null;
+    let currentDroppable_memogroup = null;
     let shiftX = event.clientX - ball.getBoundingClientRect().left;
     let shiftY = event.clientY - ball.getBoundingClientRect().top;
 
@@ -79,13 +80,21 @@ $(document).on('dblclick', '.memo', function(event) {
         if (!elemBelow) return;
 
         let droppableBelow = elemBelow.closest('.memo');
+
         if (currentDroppable != droppableBelow) {
             if (currentDroppable) { // null when we were not over a droppable before this event
-                leaveDroppable(currentDroppable);
+                leaveDroppable(currentDroppable, ball);
             }
             currentDroppable = droppableBelow;
             if (currentDroppable) { // null if we're not coming over a droppable now
+                ball_children = document.querySelector('#' + ball.id);
+                ball_children_width = ball_children.style.width;
+                ball_children.style.width = '150px';
+                ball_id = ball.id.slice(9);
+                ball_info_children = document.querySelector('#memo_info' + ball_id);
+                ball_info_children.style.display = 'none';
                 $('.memo').on('mouseup', function(event) {
+                    console.log("testw");
                     let memo_id = currentDroppable.id.slice(9),
                         memo_text = $("#memo" + memo_id).text(),
                         ball_target = $(this).data("target"),
@@ -115,6 +124,35 @@ $(document).on('dblclick', '.memo', function(event) {
                 });
             }
         }
+        let droppableBelow_memogroup = elemBelow.closest('.memo_create');
+        if (currentDroppable_memogroup != droppableBelow_memogroup) {
+            if (currentDroppable_memogroup) { // null when we were not over a droppable before this event
+                leaveDroppable(currentDroppable_memogroup, ball);
+            }
+        }
+
+        currentDroppable_memogroup = droppableBelow_memogroup;
+        if (currentDroppable_memogroup) {
+            $('.memo').one('mouseup', function(event) {
+                var ball_target = $(this).data("target"),
+                    ball = document.querySelector(ball_target),
+                    ball_id = ball.id.slice(9);
+                create_memo = document.querySelector(".memo_create_form");
+
+                create_flg = create_memo.getAttribute('value');
+                $.ajax({
+                    type: 'POST',
+                    url: '../ajax_edit_memo.php',
+                    dataType: 'text',
+                    data: {
+                        ball_id: ball_id,
+                        create_flg: create_flg
+                    }
+                }).done(function() {
+                    $('.memo').off();
+                }).fail(function() {});
+            });
+        }
     }
 
     document.addEventListener('mousemove', onMouseMove);
@@ -138,6 +176,7 @@ function enterDroppable(elem, ball_target, text_flg) {
         text = memo_text + ball_text;
     }
     $(".memo_edit_process").fadeOut();
+    $(".modal_memo").fadeOut();
     $.ajax({
         type: 'POST',
         url: '../ajax_edit_memo.php',
@@ -158,8 +197,13 @@ function enterDroppable(elem, ball_target, text_flg) {
     $('.memo').off();
 }
 
-function leaveDroppable(elem) {
+function leaveDroppable(elem, ball) {
     $('.memo').off();
+    ball_children = document.querySelector('#' + ball.id);
+    ball_children.style.width = '200px';
+    ball_id = ball.id.slice(9);
+    ball_info_children = document.querySelector('#memo_info' + ball_id);
+    ball_info_children.style.display = 'block';
 }
 
 ball.ondragstart = function() {
