@@ -1,7 +1,8 @@
 <?php
 require_once('config_2.php');
-
+_debug("www");
 if (isset($_POST)) {
+  _debug("POST");
   $user = new User($_SESSION['user_id']);
   $current_user = $user->get_user();
   $memo_id = $_POST["memo_id"];
@@ -38,54 +39,50 @@ if (isset($_POST)) {
   }
   if ($_POST["ball_id"]) {
     if ($_POST["create_flg"]) {
-      $dbh = db_connect();
-      $sql = "SELECT max(id)
-          FROM memo_group";
       try {
+        // memo_groupの最大IDを取得
+        $dbh = db_connect();
+        $sql = "SELECT max(id)
+          FROM memo_group";
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         $memo_id = $stmt->fetch();
         $dbh = db_connect();
         $ball_id = $_POST["ball_id"];
-        _debug("a    ");
-        _debug($memo_id["max(id)"]);
-        _debug("a    ");
-        _debug($ball_id);
-        _debug("a    ");
-        if (!is_null($memo_id["max(id)"])) {
+        // memo_groupが空の場合はデータを追加
+        if ($memo_id["max(id)"] != "") {
+          // 以下、重複追加を防ぐ処理
           $max_memo_id = $memo_id["max(id)"];
           $dbh = db_connect();
           $sql = "SELECT *
           FROM memo_group
-          where id=:id and memo_id =:memo_id";
+          where id=:id and memo_id like '%':memo_id'%'"; //ここはlike句にする
           $stmt = $dbh->prepare($sql);
           $stmt->execute(array(
             ':id' => $max_memo_id,
-            ':memo_id' => $ball_id
+            ':memo_id' => $ball_id  //ここがnullになっているのかも
           ));
           $memo_flg = $stmt->fetch();
-          if (is_null($memo_flg)) {
+          // memo_groupにmemo_idが無ければ追加
+          if ($memo_flg == "") {
             $dbh = db_connect();
-            $sql = "insert into memo_group( memo_id ) values(:ball_id)";
+            $sql = "insert into memo_group(memo_id) values(:ball_id)";
             $stmt = $dbh->prepare($sql);
             $stmt->execute(array(
-              ':ball_id' => $_POST["ball_id"]
+              ':ball_id' => $ball_id
             ));
-          } else {
-            _debug("pppppppppppppppppppppppppppp");
           }
         } else {
-          _debug("www");
           $dbh = db_connect();
-          $sql = "insert into memo_group( memo_id ) values(:ball_id)";
+          $sql = "insert into memo_group(memo_id) values(:ball_id)";
           $stmt = $dbh->prepare($sql);
           $stmt->execute(array(
-            ':ball_id' => $_POST["ball_id"]
+            ':ball_id' => $ball_id
           ));
         }
       } catch (\Exception $e) {
         error_log($e, 3, "../php/error.log");
-        _debug('フォロー確認失敗');
+        _debug('メモ更新失敗');
       }
     }
   }
