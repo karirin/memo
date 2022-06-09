@@ -238,3 +238,30 @@ function get_matchs()
     _debug('フォロー確認失敗');
   }
 }
+
+function get_memos_id($memo_group_id)
+{
+  try {
+    $dbh = db_connect();
+    $sql = "SELECT memo_id
+        FROM memo_group
+        where id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(
+      ':id' => $memo_group_id
+    ));
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log($e, 3, "../../php/error.log");
+    _debug('メモ取得失敗');
+  }
+}
+function get_memo_groups()
+{
+  $dbh = db_connect();
+  $sql = "SELECT *
+      FROM memo_group";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute();
+  return $stmt->fetchAll();
+}

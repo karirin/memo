@@ -364,6 +364,10 @@
     margin-right: 0.5rem;
 }
 
+.memo_group_list .memo {
+    width: 15%;
+}
+
 
 /* ///////////////////////// */
 

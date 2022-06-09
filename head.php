@@ -11,4 +11,5 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/memo.css">
     <link href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>

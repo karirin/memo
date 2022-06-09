@@ -269,7 +269,6 @@ class Memo
           INNER JOIN user ON user.id = memo.user_id
           WHERE memo.user_id = :id
           order by favorite.memo_id,memo.created_at DESC";
-          _debug($user_id);
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':id', $user_id);
           break;

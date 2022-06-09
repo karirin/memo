@@ -202,6 +202,7 @@ $('.slide_prof').on('click', function() {
 
 // モーダル画面キャンセルボタン押下時の処理
 $(document).on('click', ".modal_close", function() {
+    scroll_position = $(window).scrollTop();
     $('body').removeClass('fixed').css({ 'top': 0 });
     window.scrollTo(0, scroll_position);
     $('.modal').fadeOut();
