@@ -238,10 +238,10 @@ function leaveDroppable(elem, ball) {
 }
 
 function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
-    var memo_id = elem.id.slice(9),
-        memo_text = $("#memo" + memo_id).text(),
-        ball = document.querySelector(ball_target),
+    var ball = document.querySelector(ball_target),
         memo_group_id = ball.id.slice(9) + " ",
+        memo_id = ball.id.slice(9),
+        memo_text = $("#memo" + memo_id).text(),
         group_id = elem.id.slice(15);
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
@@ -256,8 +256,9 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         }
     }).done(function() {
         // メモグループ更新時の処理を記載する
-        $("#memo_group_list" + group_id + " > #memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div>');
-    }).fail(function() { console.log("www"); });
+        $('.memo_create_form').replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form" name="memo_create">');
+        $('.memo').off();
+    }).fail(function() {});
 }
 
 function leaveDroppable_memogroup_create(elem, ball) {
@@ -273,10 +274,11 @@ function enterDroppable_memogroup_create(elem, ball_target) {
     var ball = document.querySelector(ball_target),
         group_id = elem.id.slice(15),
         memo_group_id = ball.id.slice(9) + " ",
-        memo_text = $("#memo" + memo_group_id).text(),
+        memo_id = ball.id.slice(9),
+        memo_text = $("#memo" + memo_id).text(),
+        //id="memo_group_list<?= $memo_group['id'] ?>"
         memo_group_create = 1,
-        memo_group_list = document.querySelector(".memo_group_list");
-    console.log(memo_group_list);
+        memo_group_list = document.getElementsByClassName("memo_group_create_form");
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
     $.ajax({
@@ -288,8 +290,9 @@ function enterDroppable_memogroup_create(elem, ball_target) {
             memo_group_create: memo_group_create
         }
     }).done(function(data) {
-        memo_group_list[0].appendChild('<div class="memo_text ellipsis" id="memo ' + memo_group_id + '" data-target="#memo ' + memo_group_id + '" data-toggle="memo" >' + memo_text + '</div>');
-        //　新規追加時のメモグループを表示する
+        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div></div><input type="hidden" class="memo_create_form" name="memo_create">');
+        $('.memo').off();
+        // 新規追加時のメモグループを表示する
     }).fail(function() {});
 }
 
