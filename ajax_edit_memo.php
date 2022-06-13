@@ -36,9 +36,7 @@ if (isset($_POST)) {
   if ($_POST["memo_group_list"]) {
     try {
       $id = $_POST["group_id"];
-      _debug($id);
       $memo_id = $_POST["memo_group_id"];
-      _debug($memo_id);
       $dbh = db_connect();
       $sql = "UPDATE memo_group
             SET memo_id = concat(memo_id, :memo_id) 

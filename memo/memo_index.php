@@ -7,17 +7,18 @@ $memo_groups = get_memo_groups();
 <div class="row">
     <div class="col-4">
         <!-- foreach ($block[$_SESSION[$i]] as $memo) : メモグループ仕様にする-->
-        <div class="memo_group">
-            <?php foreach ($memo_groups as $memo_group) : ?>
-            <div class="memo_group_list" id="memo_group_list<?= $memo_group['id'] ?>"
-                data-target="#memo_group_list<?= $memo_group['id'] ?>" data-toggle="memo_group_list">
-                <?php require('memo_group_list.php'); ?>
-                <input type="hidden" class="memo_create_form" name="memo_create">
-            </div>
-            <?php endforeach; ?>
+
+        <?php foreach ($memo_groups as $memo_group) : ?>
+        <div class="memo_group_list" id="memo_group_list<?= $memo_group['id'] ?>"
+            data-target="#memo_group_list<?= $memo_group['id'] ?>" data-toggle="memo_group_list">
+            <?php require('memo_group_list.php'); ?>
+            <input type="hidden" class="memo_create_form<?= $memo_group['id'] ?>" name="memo_create">
         </div>
+        <?php endforeach; ?>
         <input type="hidden" class="memo_group_create_form" name="memo_group_create">
         <div class="memo_create">
+            <i class="fas fa-plus"></i>
+            メモグループを追加する
         </div>
     </div>
     <div class="col-8">
