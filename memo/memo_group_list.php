@@ -16,7 +16,6 @@ $block = pagination_block($memos);
 if (isset($block[0])) :
     foreach ($block[$_SESSION[$n]] as $memo) :
         if ($memo != '') :
-            _debug($memo);
             $memo_user = $user->get_user();
 ?>
 <div class="memo">

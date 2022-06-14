@@ -279,7 +279,6 @@
 .memo_create {
     position: relative;
     padding: 0.25em 1em;
-    margin: 2rem 0;
     font-size: 20px;
 }
 
@@ -395,6 +394,7 @@
 
 .memo_group_list .memo {
     width: 15%;
+    margin-bottom: 2rem;
 }
 
 

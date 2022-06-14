@@ -1,5 +1,6 @@
 <?php
 require_once('config_2.php');
+_debug($_POST);
 if (isset($_POST)) {
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
@@ -35,7 +36,20 @@ if (isset($_POST)) {
   }
   if ($_POST["memo_group_list"]) {
     try {
-      $id = $_POST["group_id"];
+      _debug("qqq");
+      _debug($_POST["group_id"]);
+      _debug("qqq");
+      _debug("group_id kara");
+      // if ($_POST["group_id"] == "") {
+      //   $dbh = db_connect();
+      //   $sql = "SELECT max(id) FROM memo_group";
+      //   $stmt = $dbh->prepare($sql);
+      //   _debug("stmt");
+      //   _debug($stmt);
+      //   $id = $stmt;
+      // } else {
+      //   $id = $_POST["group_id"]; //こちらに分岐したが正常に動いていない
+      // }
       $memo_id = $_POST["memo_group_id"];
       $dbh = db_connect();
       $sql = "UPDATE memo_group
