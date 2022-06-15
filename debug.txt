@@ -5,6 +5,18 @@ Array
 )
 Array
 (
+    [group_id] => C0
+    [group_max_id] => 0
     [memo_group_id] => 240 
-    [memo_group_create] => 1
+    [memo_group_list] => 1
 )
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Array
+(
+    [0] => Array
+        (
+            [max(id)] => 
+            [0] => 
+        )
+
+)
+qqq0

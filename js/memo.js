@@ -242,13 +242,8 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         memo_group_id = ball.id.slice(9) + " ",
         memo_id = ball.id.slice(9),
         memo_text = $("#memo" + memo_id).text(),
-        group_id = elem.id.slice(15);
-    // if ($(".memo_group_create_form").prev()[0] !== undefined) {
-    //     group_id = $(".memo_group_create_form").prev()[0].id.slice(15);
-    //     ++group_id;
-    // } else {
-    //     group_id = "";
-    // }
+        group_id = elem.id.slice(15),
+        group_max_id = $(".memo_group_create_form").prev()[0].id.slice(16);
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
     $.ajax({
@@ -257,6 +252,7 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         dataType: 'text',
         data: {
             group_id: group_id,
+            group_max_id: group_max_id,
             memo_group_id: memo_group_id,
             memo_group_list: memo_group_list
         }
@@ -286,9 +282,15 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         memo_group_list = document.getElementsByClassName("memo_group_create_form");
     if ($(".memo_group_create_form").prev()[0] !== undefined) {
         group_id = $(".memo_group_create_form").prev()[0].id.slice(15);
-        ++group_id;
+        if (group_id.indexOf("C") == -1) {
+            ++group_id;
+        } else {
+            group_id = group_id.slice(1);
+            ++group_id;
+            group_id = "C" + group_id;
+        }
     } else {
-        group_id = 0;
+        group_id = "C" + 0;
     }
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();

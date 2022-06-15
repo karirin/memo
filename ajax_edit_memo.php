@@ -36,20 +36,23 @@ if (isset($_POST)) {
   }
   if ($_POST["memo_group_list"]) {
     try {
-      _debug("qqq");
-      _debug($_POST["group_id"]);
-      _debug("qqq");
-      _debug("group_id kara");
-      // if ($_POST["group_id"] == "") {
-      //   $dbh = db_connect();
-      //   $sql = "SELECT max(id) FROM memo_group";
-      //   $stmt = $dbh->prepare($sql);
-      //   _debug("stmt");
-      //   _debug($stmt);
-      //   $id = $stmt;
-      // } else {
-      //   $id = $_POST["group_id"]; //こちらに分岐したが正常に動いていない
-      // }
+      if (substr($_POST["group_id"], 0, 1) == "C") {
+        _debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        $id = substr($_POST["group_id"], 1);
+        $max_id = $_POST["group_max_id"];
+        $id = $id - $max_id;
+        $dbh = db_connect();
+        $sql = "SELECT max(id) FROM memo_group";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $group_max_id = $stmt->fetchAll();
+        _debug($group_max_id);
+        _debug("qqq");
+        _debug($id);
+        $group_id = $group_max_id + $group_id;
+        _debug("www");
+        _debug($group_id);
+      }
       $memo_id = $_POST["memo_group_id"];
       $dbh = db_connect();
       $sql = "UPDATE memo_group
@@ -67,13 +70,13 @@ if (isset($_POST)) {
   }
   if ($_POST["memo_group_create"]) {
     try {
-      $memo_id = $_POST["memo_group_id"];
-      $dbh = db_connect();
-      $sql = "insert into memo_group(memo_id) values(:memo_id)";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(
-        ':memo_id' => $memo_id
-      ));
+      // $memo_id = $_POST["memo_group_id"];
+      // $dbh = db_connect();
+      // $sql = "insert into memo_group(memo_id) values(:memo_id)";
+      // $stmt = $dbh->prepare($sql);
+      // $stmt->execute(array(
+      //   ':memo_id' => $memo_id
+      // ));
     } catch (\Exception $e) {
       error_log($e, 3, "../php/error.log");
       _debug('メモ更新失敗');
