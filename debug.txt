@@ -1,22 +1,44 @@
 Array
 (
-    [memo_group_id] => 241 
+    [memo_group_id] => 246 
     [memo_group_create] => 1
 )
 Array
 (
+    [memo_group_id] => 245 
+    [memo_group_create] => 1
+)
+Array
+(
+    [memo_group_id] => 244 
+    [memo_group_create] => 1
+)
+Array
+(
+    [group_id] => C2
+    [group_max_id] => 2
+    [memo_group_id] => 243 
+    [memo_group_list] => 1
+)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2188qqq0wwwArray
+(
+    [group_id] => C2
+    [group_max_id] => 2
+    [memo_group_id] => 242 
+    [memo_group_list] => 1
+)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2188qqq0wwwArray
+(
     [group_id] => C0
-    [group_max_id] => 0
+    [group_max_id] => 2
+    [memo_group_id] => 241 
+    [memo_group_list] => 1
+)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2188qqq-2wwwArray
+(
+    [group_id] => C1
+    [group_max_id] => 2
     [memo_group_id] => 240 
     [memo_group_list] => 1
 )
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Array
-(
-    [0] => Array
-        (
-            [max(id)] => 
-            [0] => 
-        )
-
-)
-qqq0
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2188qqq-1www
