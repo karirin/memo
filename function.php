@@ -265,3 +265,13 @@ function get_memo_groups()
   $stmt->execute();
   return $stmt->fetchAll();
 }
+
+function get_memo_group_maxid()
+{
+  $dbh = db_connect();
+  $sql = "SELECT max(id)
+      FROM memo_group";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute();
+  return $stmt->fetchAll();
+}

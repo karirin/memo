@@ -36,8 +36,8 @@ if (isset($_POST)) {
   }
   if ($_POST["memo_group_list"]) {
     try {
+      $id = $_POST["group_id"];
       if (substr($_POST["group_id"], 0, 1) == "C") {
-        _debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         $id = substr($_POST["group_id"], 1);
         $max_id = $_POST["group_max_id"];
         $id = $id - $max_id;
@@ -46,12 +46,7 @@ if (isset($_POST)) {
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         $group_max_id = $stmt->fetchAll();
-        _debug($group_max_id[0]['max(id)']);
-        _debug("qqq");
-        _debug($id);
         $id = $group_max_id[0]['max(id)'] + $id;
-        _debug("www");
-        _debug($group_id);
       }
       $memo_id = $_POST["memo_group_id"];
       $dbh = db_connect();
