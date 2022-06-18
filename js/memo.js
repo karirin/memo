@@ -53,13 +53,13 @@ $(document).on('dblclick', '.memo', function(event) {
     let ball = document.querySelector(ball_id);
     let currentDroppable = null;
     let currentDroppable_memogroup = null;
-    let currentDroppable_memogroup_cleate = null;
+    let currentDroppable_memogroup_create = null;
     let shiftX = event.clientX - ball.getBoundingClientRect().left;
     let shiftY = event.clientY - ball.getBoundingClientRect().top;
 
     //絶対位置で一番上になるように
     ball.style.position = 'absolute';
-    ball.style.zIndex = 1000;
+    ball.style.zIndex = 5;
 
     //対象オブジェクトをbody要素に追加
     document.body.append(ball);
@@ -127,62 +127,76 @@ $(document).on('dblclick', '.memo', function(event) {
         let droppableBelow_memogroup = elemBelow.closest('.memo_group_list');
         if (currentDroppable_memogroup != droppableBelow_memogroup) {
             if (currentDroppable_memogroup) { // null when we were not over a droppable before this event
-                leaveDroppable(currentDroppable_memogroup, ball);
+                leaveDroppable_memogroup(currentDroppable_memogroup, ball);
+            }
+
+
+            currentDroppable_memogroup = droppableBelow_memogroup;
+            if (currentDroppable_memogroup) {
+                ball_children = document.querySelector('#' + ball.id);
+                ball_children_width = ball_children.style.width;
+                ball_children.style.width = '150px';
+                ball_id = ball.id.slice(9);
+                ball_info_children = document.querySelector('#memo_info' + ball_id);
+                ball_info_children.style.display = 'none';
+                $('.memo').on('mouseup', function() {
+                    var ball_target = $(this).data("target"),
+                        ball = document.querySelector(ball_target),
+                        memo_group_id = ball.id.slice(9) + " ",
+                        group_id = currentDroppable_memogroup.id.slice(15);
+                    ball.style.display = 'none';
+                    $(".memo_edit_process").fadeIn();
+                    $(".modal_memo").fadeIn();
+                    $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループに追加しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
+                    $('.modal_close').on('click', function(event) {
+                        $(".memo_edit_process").fadeOut();
+                        $(".modal_memo").fadeOut();
+                        ball.style.display = 'block';
+                        $('.memo').off();
+                    });
+                    $('.ok_btn').one('click', function() {
+                        memo_group_list = 1;
+                        enterDroppable_memogroup(currentDroppable_memogroup, ball_target, memo_group_list);
+                    });
+                });
             }
         }
-
-        currentDroppable_memogroup = droppableBelow_memogroup;
-        if (currentDroppable_memogroup) {
-            $('.memo').on('mouseup', function() {
-                var ball_target = $(this).data("target"),
-                    ball = document.querySelector(ball_target),
-                    memo_group_id = ball.id.slice(9) + " ",
-                    group_id = currentDroppable_memogroup.id.slice(15);
-                ball.style.display = 'none';
-                $(".memo_edit_process").fadeIn();
-                $(".modal_memo").fadeIn();
-                $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループに追加しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-                $('.modal_close').on('click', function(event) {
-                    $(".memo_edit_process").fadeOut();
-                    $(".modal_memo").fadeOut();
-                    ball.style.display = 'block';
-                    $('.memo').off();
-                });
-                $('.ok_btn').one('click', function() {
-                    memo_group_list = 1;
-                    enterDroppable_memogroup(currentDroppable_memogroup, ball_target, memo_group_list);
-                });
-            });
-        }
         let droppableBelow_memogroup_create = elemBelow.closest('.memo_create');
-        if (currentDroppable_memogroup_cleate != droppableBelow_memogroup_create) {
+        if (currentDroppable_memogroup_create != droppableBelow_memogroup_create) {
             if (currentDroppable_memogroup_create) { // null when we were not over a droppable before this event
                 leaveDroppable_memogroup_create(currentDroppable_memogroup_create, ball);
             }
-        }
 
-        currentDroppable_memogroup_create = droppableBelow_memogroup_create;
-        if (currentDroppable_memogroup_create) {
-            $('.memo').on('mouseup', function() {
-                var ball_target = $(this).data("target"),
-                    ball = document.querySelector(ball_target),
-                    memo_group_id = ball.id.slice(9) + " ",
-                    group_id = currentDroppable_memogroup_create.id.slice(15),
-                    memo_group_text = $("#memo" + memo_group_id).text();
-                ball.style.display = 'none';
-                $(".memo_edit_process").fadeIn();
-                $(".modal_memo").fadeIn();
-                $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループを新規作成しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-                $('.modal_close').on('click', function(event) {
-                    $(".memo_edit_process").fadeOut();
-                    $(".modal_memo").fadeOut();
-                    ball.style.display = 'block';
-                    $('.memo').off();
+
+            currentDroppable_memogroup_create = droppableBelow_memogroup_create;
+            if (currentDroppable_memogroup_create) {
+                ball_children = document.querySelector('#' + ball.id);
+                ball_children_width = ball_children.style.width;
+                ball_children.style.width = '150px';
+                ball_id = ball.id.slice(9);
+                ball_info_children = document.querySelector('#memo_info' + ball_id);
+                ball_info_children.style.display = 'none';
+                $('.memo').on('mouseup', function() {
+                    var ball_target = $(this).data("target"),
+                        ball = document.querySelector(ball_target),
+                        memo_group_id = ball.id.slice(9) + " ",
+                        group_id = currentDroppable_memogroup_create.id.slice(15),
+                        memo_group_text = $("#memo" + memo_group_id).text();
+                    ball.style.display = 'none';
+                    $(".memo_edit_process").fadeIn();
+                    $(".modal_memo").fadeIn();
+                    $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループを新規作成しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
+                    $('.modal_close').on('click', function(event) {
+                        $(".memo_edit_process").fadeOut();
+                        $(".modal_memo").fadeOut();
+                        ball.style.display = 'block';
+                        $('.memo').off();
+                    });
+                    $('.ok_btn').one('click', function() {
+                        enterDroppable_memogroup_create(currentDroppable_memogroup_create, ball_target);
+                    });
                 });
-                $('.ok_btn').one('click', function() {
-                    enterDroppable_memogroup_create(currentDroppable_memogroup_create, ball_target);
-                });
-            });
+            }
         }
     }
 
@@ -193,6 +207,15 @@ $(document).on('dblclick', '.memo', function(event) {
         ball.onmouseup = null;
     };
 });
+
+function leaveDroppable(elem, ball) {
+    $('.memo').off();
+    ball_children = document.querySelector('#' + ball.id);
+    ball_children.style.width = '200px';
+    ball_id = ball.id.slice(9);
+    ball_info_children = document.querySelector('#memo_info' + ball_id);
+    ball_info_children.style.display = 'block';
+}
 
 function enterDroppable(elem, ball_target, text_flg) {
     let memo_id = elem.id.slice(9),
@@ -228,7 +251,7 @@ function enterDroppable(elem, ball_target, text_flg) {
     $('.memo').off();
 }
 
-function leaveDroppable(elem, ball) {
+function leaveDroppable_memogroup(elem, ball) {
     $('.memo').off();
     ball_children = document.querySelector('#' + ball.id);
     ball_children.style.width = '200px';

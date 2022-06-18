@@ -267,7 +267,7 @@ class Memo
           $sql = "SELECT memo.id,memo.text,memo.image,memo.user_id,memo.created_at,favorite.memo_id,memo.delete_flg
           FROM memo LEFT OUTER JOIN favorite ON memo.id = favorite.memo_id
           INNER JOIN user ON user.id = memo.user_id
-          WHERE memo.user_id = :id
+          WHERE memo.user_id = :id and memo.delete_flg = 0
           order by favorite.memo_id,memo.created_at DESC";
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':id', $user_id);
