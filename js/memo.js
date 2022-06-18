@@ -258,10 +258,9 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         }
     }).done(function() {
         // メモグループ更新時の処理を記載する
+        // ('.memo_create_form' + group_id)のgroup_idで更新をかけるメモを指定したい
         $('.memo_create_form' + group_id).replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create">');
         $('.memo').off();
-        console.log(group_id);
-        console.log(group_max_id);
     }).fail(function() {});
 }
 
@@ -283,7 +282,6 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         memo_group_create = 1,
         memo_group_list = document.getElementsByClassName("memo_group_create_form"),
         memo_group_maxid = $(".memo_group_maxid").val();
-    console.log(memo_group_maxid);
     if ($(".memo_group_create_form").prev()[0] !== undefined) {
         group_id = $(".memo_group_create_form").prev()[0].id.slice(15);
         if (group_id.indexOf("C") == -1) {
@@ -307,7 +305,7 @@ function enterDroppable_memogroup_create(elem, ball_target) {
             memo_group_create: memo_group_create
         }
     }).done(function() {
-        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div></div><input type="hidden" class="memo_group_create_form" name="memo_create">');
+        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_create">');
         $('.memo').off();
         // 新規追加時のメモグループを表示する
     }).fail(function() {});
