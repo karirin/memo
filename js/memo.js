@@ -243,7 +243,8 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         memo_id = ball.id.slice(9),
         memo_text = $("#memo" + memo_id).text(),
         group_id = elem.id.slice(15),
-        group_max_id = $(".memo_group_create_form").prev()[0].id.slice(16);
+        group_max_id = $(".memo_group_create_form").prev()[0].id.slice(16),
+        delete_flg = 1;
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
     $.ajax({
@@ -251,10 +252,12 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
         url: '../ajax_edit_memo.php',
         dataType: 'text',
         data: {
+            ball_id: memo_id,
             group_id: group_id,
             group_max_id: group_max_id,
             memo_group_id: memo_group_id,
-            memo_group_list: memo_group_list
+            memo_group_list: memo_group_list,
+            delete_flg: delete_flg
         }
     }).done(function() {
         // メモグループ更新時の処理を記載する
@@ -281,7 +284,8 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         memo_text = $("#memo" + memo_id).text(),
         memo_group_create = 1,
         memo_group_list = document.getElementsByClassName("memo_group_create_form"),
-        memo_group_maxid = $(".memo_group_maxid").val();
+        memo_group_maxid = $(".memo_group_maxid").val(),
+        delete_flg = 1;
     if ($(".memo_group_create_form").prev()[0] !== undefined) {
         group_id = $(".memo_group_create_form").prev()[0].id.slice(15);
         if (group_id.indexOf("C") == -1) {
@@ -301,8 +305,10 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         url: '../ajax_edit_memo.php',
         dataType: 'text',
         data: {
+            ball_id: memo_id,
             memo_group_id: memo_group_id,
-            memo_group_create: memo_group_create
+            memo_group_create: memo_group_create,
+            delete_flg: delete_flg
         }
     }).done(function() {
         $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_create">');

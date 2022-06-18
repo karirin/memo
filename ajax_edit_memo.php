@@ -19,21 +19,6 @@ if (isset($_POST)) {
     error_log($e, 3, "../../php/error.log");
     _debug('メモ更新失敗');
   }
-
-  if ($_POST["delete_flg"]) {
-    try {
-      $dbh = db_connect();
-      $sql = "DELETE FROM memo
-              WHERE id = :memo_id";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(
-        ':memo_id' => $ball_id
-      ));
-    } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
-      _debug('メモ更新失敗');
-    }
-  }
   if ($_POST["memo_group_list"]) {
     try {
       $id = $_POST["group_id"];
@@ -74,6 +59,20 @@ if (isset($_POST)) {
       ));
     } catch (\Exception $e) {
       error_log($e, 3, "../php/error.log");
+      _debug('メモ更新失敗');
+    }
+  }
+  if ($_POST["delete_flg"]) {
+    try {
+      $dbh = db_connect();
+      $sql = "UPDATE memo SET delete_flg = 1
+              WHERE id = :memo_id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(
+        ':memo_id' => $ball_id
+      ));
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メモ更新失敗');
     }
   }
