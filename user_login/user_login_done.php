@@ -48,7 +48,7 @@ try {
 			$_SESSION['user_name'] = $rec['name'];
 
 			set_flash('sucsess', 'ログインしました');
-			header('Location:../memo/memo_index.php?type=mymemo');
+			header('Location:../user_login/user_top.php');
 			exit();
 		}
 	}

@@ -1,6 +1,5 @@
 <?php
 require_once('config_2.php');
-_debug($_POST);
 if (isset($_POST)) {
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
@@ -59,6 +58,40 @@ if (isset($_POST)) {
       ));
     } catch (\Exception $e) {
       error_log($e, 3, "../php/error.log");
+      _debug('メモ更新失敗');
+    }
+  }
+  if ($_POST["group_select"]) {
+    try {
+      $dbh = db_connect();
+      $sql = "UPDATE memo
+            SET delete_flg = 2 
+            WHERE delete_flg = 0";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $group_id = $_POST["group_id"];
+      $dbh = db_connect();
+      $sql = "SELECT memo_id FROM memo_group
+              WHERE id = :id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(
+        ':id' => $group_id
+      ));
+      $memo_id = $stmt->fetch();
+      $memo_id = explode(" ", $memo_id["memo_id"]);
+      _debug($memo_id);
+      for ($i = 0; $i < count($memo_id); $i++) {
+        $dbh = db_connect();
+        $sql = "UPDATE memo
+              SET delete_flg = 0 
+              WHERE id = :id";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(
+          ':id' => $memo_id[$i]
+        ));
+      }
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メモ更新失敗');
     }
   }

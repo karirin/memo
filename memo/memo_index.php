@@ -25,7 +25,6 @@ $i = 0;
         <?php
         $memo = new Memo(0);
         $memos = $memo->get_memos($_SESSION['user_id'], 'mymemo', 0);
-        _debug($memos);
         ?>
         <?php
         require('memo_list.php');
