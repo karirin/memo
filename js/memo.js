@@ -365,10 +365,11 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         // 新規追加時のメモグループを表示する
     }).fail(function() {});
 }
-
-ball.ondragstart = function() {
-    return false;
-};
+if (ball != null) {
+    ball.ondragstart = function() {
+        return false;
+    };
+}
 
 // $('.click').on('click', function() {
 //     // if (jqxhr) { //追記部分

@@ -1,7 +1,7 @@
 <div class="modal_memo"></div>
 <div class="memo_process">
     <h2 class="memo_title">メモ</h2>
-    <form method="post" action="../user_login/user_top.php" enctype="multipart/form-data">
+    <form method="post" action="../memo/memo_add_done.php" enctype="multipart/form-data">
         <textarea id="memo_process_counter" class="textarea form-control" placeholder="メモ内容を入力ください"
             name="text"></textarea>
         <div class="counter">
