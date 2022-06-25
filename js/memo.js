@@ -50,8 +50,8 @@ $(document).on('click', '.memo_group_list', function() {
     var ball_target = $(this).data("target"),
         ball = document.querySelector(ball_target),
         group_id = ball.id.slice(15),
-        group_select = 1;
-    console.log(group_id);
+        group_select = 1,
+        group_max_id = $(".memo_group_create_form").prev()[0].id.slice(16);
     // $("#" + $target_id).replaceWith('<textarea type="text" name="memo_text" id="edit_' + $target_id + '" >' + memo_text);
     // $("#edit_" + $target_id).on('mouseout', function(e) {
     //     e.stopPropagation();
@@ -63,12 +63,35 @@ $(document).on('click', '.memo_group_list', function() {
         dataType: 'text',
         data: {
             group_id: group_id,
-            group_select: group_select
+            group_select: group_select,
+            group_max_id: group_max_id
         }
     }).done(function() {
+        location.reload();
         // /$("#edit_" + $target_id).replaceWith('<div class="memo_text ellipsis" id="' + $target_id + '" data-target="' + $target_modal + '" data-toggle="memo">' + edit_memo_text + '</div>');
     }).fail(function() {});
     // });
+});
+
+// すべてのメモクリック時
+$(document).on('click', '.all_memo', function() {
+    var all_memo = 1;
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_memo.php',
+        dataType: 'text',
+        data: {
+            all_memo: all_memo
+        }
+    }).done(function() {
+        location.reload();
+    }).fail(function() {});
+});
+
+// すべてのメモクリック時
+$(document).on('click', '.far.fa-question-circle', function() {
+    $(".modal_memo").fadeIn();
+    $(".memo_helpdisp").fadeIn();
 });
 
 var ball = document.querySelector('.memo');
@@ -360,16 +383,85 @@ function enterDroppable_memogroup_create(elem, ball_target) {
             delete_flg: delete_flg
         }
     }).done(function() {
-        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_create">');
+        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '" data-target="#memo_group_list' + group_id + '" data-toggle="memo_group_list"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_create">');
         $('.memo').off();
         // 新規追加時のメモグループを表示する
     }).fail(function() {});
 }
+
+// メモグループ長押し
+const longPress = {
+    //プロパティ
+    el: '',
+    count: 0,
+    second: 1,
+    interval: 10,
+    timerId: 0,
+
+    //メソッド
+    init: function(param) {
+        //引数のパラメータ取得
+        this.el = document.querySelector(param.el);
+        this.second = param.second;
+        //イベントリスナー
+        this.el.addEventListener('mousedown', () => { this.start() }, false);
+        this.el.addEventListener('mouseup', () => { this.end() }, false);
+    },
+    start: function() {
+        this.timerId = setInterval(() => {
+
+            this.count++;
+
+            if (this.count / 100 === this.second) {
+                //長押し判定時の処理
+                this.myFunc();
+                this.end();
+            }
+
+        }, this.interval);
+    },
+    end: function() {
+        clearInterval(this.timerId);
+        this.count = 0;
+    },
+    myFunc: function() {
+        var group_id = $(this)[0].el.id.slice(15);
+        alert(group_id);
+    }
+}
+
+//初期化
+longPress.init({
+    el: '.memo_group_list', //長押しの判定を取りたい要素のセレクタを指定する
+    second: 1, //長押しの秒数を指定する
+});
+
 if (ball != null) {
     ball.ondragstart = function() {
         return false;
     };
 }
+
+// チュートリアル内の矢印処理
+$(document).on('click', '.fas.fa-angle-left', function() {
+    if ($('.memoadd_helpdisp').css('display') == 'block') {
+        $('.memoadd_helpdisp').css('display', 'none');
+        $('.memodrag_helpdisp').css('display', 'block');
+    } else if ($('.memogroup_helpdisp').css('display') == 'block') {
+        $('.memogroup_helpdisp').css('display', 'none');
+        $('.memoadd_helpdisp').css('display', 'block');
+    }
+});
+
+$(document).on('click', '.fas.fa-angle-right', function() {
+    if ($('.memodrag_helpdisp').css('display') == 'block') {
+        $('.memodrag_helpdisp').css('display', 'none');
+        $('.memoadd_helpdisp').css('display', 'block');
+    } else if ($('.memoadd_helpdisp').css('display') == 'block') {
+        $('.memoadd_helpdisp').css('display', 'none');
+        $('.memogroup_helpdisp').css('display', 'block');
+    }
+});
 
 // $('.click').on('click', function() {
 //     // if (jqxhr) { //追記部分

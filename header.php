@@ -20,29 +20,28 @@
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php">Memo App</a></li>
             <li class="header_menu memo_modal"><a href="#">memo</a></li>
-            <li class="header_menu"><a href="../memo/memo_index.php?type=mymemo">memolist</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
-            <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
             <li class="show_menu">menu
-                <div class="slide_menu">
-                    <a class="modal_close" href="#">
-                        <p><i class="fas fa-angle-left"></i></p>
+            <li class="slide_menu_message"><i class="far fa-question-circle"></i></li>
+            <div class="slide_menu">
+                <a class="modal_close" href="#">
+                    <p><i class="fas fa-angle-left"></i></p>
+                </a>
+                <ul>
+                    <a href="../user_login/user_logout.php">
+                        <li>logout</li>
                     </a>
-                    <ul>
-                        <a href="../user_login/user_logout.php">
-                            <li>logout</li>
-                        </a>
-                        <a href="/withdraw.php">
-                            <li>withdrawal</li>
-                        </a>
-                        <a href="#">
-                            <li class="slide_menu_message">memo</li>
-                        </a>
-                        <a href="../memo/memo_index.php?type=mymemo">
-                            <li class="slide_menu_message">memolist</li>
-                        </a>
-                    </ul>
-                </div>
+                    <a href="/withdraw.php">
+                        <li>withdrawal</li>
+                    </a>
+                    <a href="#">
+                        <li class="slide_menu_message">memo</li>
+                    </a>
+                    <a href="../memo/memo_index.php?type=mymemo">
+                        <li class="slide_menu_message">memolist</li>
+                    </a>
+                </ul>
+            </div>
             </li>
         </ul>
         <?php

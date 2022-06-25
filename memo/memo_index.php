@@ -8,6 +8,9 @@ $i = 0;
 ?>
 <div class="row">
     <div class="col-4">
+        <div class="all_memo">
+            すべてのメモ
+        </div>
         <?php foreach ($memo_groups as $memo_group) : ?>
         <div class="memo_group_list" id="memo_group_list<?= $memo_group['id'] ?>"
             data-target="#memo_group_list<?= $memo_group['id'] ?>" data-toggle="memo_group_list">

@@ -63,6 +63,7 @@ if (isset($_POST)) {
   }
   if ($_POST["group_select"]) {
     try {
+      // 全メモグループのメモ情報取得
       $dbh = db_connect();
       $sql = "SELECT memo_id
         FROM memo_group";
@@ -71,8 +72,9 @@ if (isset($_POST)) {
       $memo_id = $stmt->fetchAll();
       $memos_id = array();
       for ($i = 0; $i < count($memo_id); $i++) {
-        $memos_id .= $memo_id[$i]['memo_id']; //全memo_groupテーブルのmemo_idを取得
+        $memos_id .= $memo_id[$i]['memo_id'];
       }
+      // 全メモ情報を取得
       $dbh = db_connect();
       $sql = "SELECT id
           FROM memo";
@@ -80,7 +82,9 @@ if (isset($_POST)) {
       $stmt->execute();
       $memo_id = $stmt->fetchAll();
       for ($i = 0; $i < count($memo_id); $i++) {
+        // メモグループのメモ情報か判断
         if (strpos($memos_id, $memo_id[$i]['id']) === false) {
+          // 異なる場合はdelete_flgを2に更新
           $dbh = db_connect();
           $sql = "UPDATE memo
                 SET delete_flg = 2 
@@ -89,30 +93,71 @@ if (isset($_POST)) {
           $stmt->execute(array(
             ':id' => $memo_id[$i]['id']
           ));
+        } else {
+          // 一致した場合はdelete_flgを0か1に更新
+          // クリックされたメモグループからメモ情報を取得
+          $group_id = $_POST["group_id"];
+          // 非同期通信中でのメモグループID取得処理
+          if (substr($_POST["group_id"], 0, 1) == "C") {
+            $id = substr($_POST["group_id"], 1);
+            $max_id = $_POST["group_max_id"];
+            $id = $id - $max_id;
+            $dbh = db_connect();
+            $sql = "SELECT max(id) FROM memo_group";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+            $group_max_id = $stmt->fetchAll();
+            $group_id = $group_max_id[0]['max(id)'] + $id;
+          }
+          $dbh = db_connect();
+          $sql = "SELECT memo_id FROM memo_group
+                  WHERE id = :id";
+          $stmt = $dbh->prepare($sql);
+          $stmt->execute(array(
+            ':id' => $group_id
+          ));
+          $memo_group_id = $stmt->fetch();
+          // クリックされたメモグループのメモ情報か判断
+          if (strpos($memo_group_id["memo_id"], $memo_id[$i]['id']) === false) {
+            // 異なる場合はdelete_flgを1に更新
+            $dbh = db_connect();
+            $sql = "UPDATE memo
+                  SET delete_flg = 1
+                  WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+              ':id' => $memo_id[$i]['id']
+            ));
+          } else {
+            // 異なる場合はdelete_flgを0に更新
+            $dbh = db_connect();
+            $sql = "UPDATE memo
+                  SET delete_flg = 0
+                  WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+              ':id' => $memo_id[$i]['id']
+            ));
+          }
         }
       }
-      //　選択されたメモグループのメモ情報を取得
-      $group_id = $_POST["group_id"];
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('メモ更新失敗');
+    }
+  }
+  if ($_POST["all_memo"]) {
+    try {
       $dbh = db_connect();
-      $sql = "SELECT memo_id FROM memo_group
-              WHERE id = :id";
+      $sql = "UPDATE memo SET delete_flg = 1
+              WHERE delete_flg = 0";
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(
-        ':id' => $group_id
-      ));
-      $memo_id = $stmt->fetch();
-      $memo_id = explode(" ", $memo_id["memo_id"]);
-      //　取得したメモ情報のdelete_flgを0に
-      for ($i = 0; $i < count($memo_id); $i++) {
-        $dbh = db_connect();
-        $sql = "UPDATE memo
-              SET delete_flg = 0 
-              WHERE id = :id";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute(array(
-          ':id' => $memo_id[$i]
-        ));
-      }
+      $stmt->execute();
+      $dbh = db_connect();
+      $sql = "UPDATE memo SET delete_flg = 0
+              WHERE delete_flg = 2";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
       _debug('メモ更新失敗');

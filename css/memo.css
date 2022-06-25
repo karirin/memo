@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
     border-radius: 0.5rem;
     width: 200px;
+    margin: 5px;
 }
 
 .memo .memo_list {
@@ -307,6 +308,148 @@
 }
 
 .memo_create p {
+    margin: 0;
+    padding: 0;
+}
+
+.memo_helpdisp {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    padding: 1rem;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.memo_helpdisp .fas.fa-angle-left {
+    top: 727%;
+    right: 267px;
+    position: fixed;
+    font-size: 4rem;
+    z-index: 1000;
+}
+
+.memo_helpdisp .fas.fa-angle-left:hover {
+    opacity: 0.5;
+}
+
+.memo_helpdisp .fas.fa-angle-right {
+    top: 727%;
+    left: 267px;
+    position: fixed;
+    font-size: 4rem;
+    z-index: 1000;
+    color: aliceblue;
+}
+
+.memo_helpdisp .fas.fa-angle-right:hover {
+    opacity: 0.5;
+}
+
+.memodrag_helpdisp {
+    /* display: none; */
+    position: fixed;
+    z-index: 25;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    height: 370px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -20%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+    margin: 0;
+    background-image: url("../image/gif/メモドラッグの流れ.gif");
+    background-repeat: no-repeat;
+    background-size: 591px;
+}
+
+.memoadd_helpdisp {
+    /* display: none; */
+    position: fixed;
+    z-index: 20;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    height: 370px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -20%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+    margin: 0;
+    background-image: url("../image/gif/メモ追加の流れ.gif");
+    background-repeat: no-repeat;
+    background-size: 591px;
+}
+
+.memogroup_helpdisp {
+    z-index: 15;
+}
+
+.memoadd_title {
+    top: 84%;
+    right: 223px;
+    position: fixed;
+    font-size: 2rem;
+}
+
+.memodrag_title {
+    top: 84%;
+    right: 174px;
+    position: fixed;
+    font-size: 2rem;
+}
+
+.memogroup_title {
+    top: 84%;
+    right: 223px;
+    position: fixed;
+    font-size: 2rem;
+}
+
+.all_memo {
+    position: relative;
+    padding: 0.25em 1em;
+    font-size: 20px;
+}
+
+.all_memo:before,
+.all_memo:after {
+    content: '';
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    display: inline-block;
+}
+
+.all_memo:before {
+    border-left: solid 2px #000;
+    border-top: solid 2px #000;
+    top: 0;
+    left: 0;
+}
+
+.all_memo:after {
+    border-right: solid 2px #000;
+    border-bottom: solid 2px #000;
+    bottom: 0;
+    right: 0;
+}
+
+.all_memo p {
     margin: 0;
     padding: 0;
 }
