@@ -353,6 +353,13 @@
     opacity: 0.5;
 }
 
+.far.fa-times-circle.memo_clear {
+    z-index: 40;
+    top: -101px;
+    left: 273px;
+    font-size: 5rem;
+}
+
 .memodrag_helpdisp {
     /* display: none; */
     position: fixed;

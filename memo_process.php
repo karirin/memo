@@ -26,6 +26,7 @@
     </div>
 </div>
 <div class="memo_helpdisp" style="display:none;">
+    <i class="far fa-times-circle memo_clear"></i>
     <div class="memodrag_helpdisp">
         <p class="memodrag_title">メモのドラッグ</p>
     </div>

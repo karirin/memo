@@ -91,7 +91,12 @@ $(document).on('click', '.all_memo', function() {
 // すべてのメモクリック時
 $(document).on('click', '.far.fa-question-circle', function() {
     $(".modal_memo").fadeIn();
+    $(".far.fa-times-circle.memo_clear").fadeIn();
     $(".memo_helpdisp").fadeIn();
+    $(document).on('click', '.far.fa-times-circle.memo_clear', function() {
+        $(".modal_memo").fadeOut();
+        $(".memo_helpdisp").fadeOut();
+    });
 });
 
 var ball = document.querySelector('.memo');
@@ -389,51 +394,45 @@ function enterDroppable_memogroup_create(elem, ball_target) {
     }).fail(function() {});
 }
 
-// メモグループ長押し
-const longPress = {
-    //プロパティ
-    el: '',
-    count: 0,
-    second: 1,
-    interval: 10,
-    timerId: 0,
+/// 長押しを検知する閾値
+var LONGPRESS = 1500;
+/// 長押し実行タイマーのID
+var timerId;
 
-    //メソッド
-    init: function(param) {
-        //引数のパラメータ取得
-        this.el = document.querySelector(param.el);
-        this.second = param.second;
-        //イベントリスナー
-        this.el.addEventListener('mousedown', () => { this.start() }, false);
-        this.el.addEventListener('mouseup', () => { this.end() }, false);
-    },
-    start: function() {
-        this.timerId = setInterval(() => {
-
-            this.count++;
-
-            if (this.count / 100 === this.second) {
-                //長押し判定時の処理
-                this.myFunc();
-                this.end();
-            }
-
-        }, this.interval);
-    },
-    end: function() {
-        clearInterval(this.timerId);
-        this.count = 0;
-    },
-    myFunc: function() {
-        var group_id = $(this)[0].el.id.slice(15);
-        alert(group_id);
-    }
-}
-
-//初期化
-longPress.init({
-    el: '.memo_group_list', //長押しの判定を取りたい要素のセレクタを指定する
-    second: 1, //長押しの秒数を指定する
+/// 長押し・ロングタップを検知する
+$('.memo_group_list').on("mousedown touchstart", function() {
+    var $target_modal = $(this).data("target");
+    timerId = setTimeout(function() {
+        var ball = document.querySelector($target_modal),
+            group_id = ball.id.slice(15),
+            delete_group_flg = 1;
+        /// 長押し時（Longpress）のコード
+        $(".memo_edit_process").fadeIn();
+        $(".modal_memo").fadeIn();
+        $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">こちらのメモグループを削除しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
+        $('.modal_close').on('click', function(event) {
+            $(".memo_edit_process").fadeOut();
+            $(".modal_memo").fadeOut();
+        });
+        $('.ok_btn').one('click', function() {
+            $(".memo_edit_process").fadeOut();
+            $(".modal_memo").fadeOut();
+            $.ajax({
+                type: 'POST',
+                url: '../ajax_edit_memo.php',
+                dataType: 'text',
+                data: {
+                    ball_id: group_id,
+                    delete_group_flg: delete_group_flg
+                }
+            }).done(function() {
+                console.log($($target_modal)[0]);
+                $($target_modal)[0].style.display = 'none';
+            }).fail(function() {});
+        });
+    }, LONGPRESS);
+}).on("mouseup mouseleave touchend", function() {
+    clearTimeout(timerId);
 });
 
 if (ball != null) {
