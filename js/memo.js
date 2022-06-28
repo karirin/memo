@@ -363,17 +363,12 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         memo_group_list = document.getElementsByClassName("memo_group_create_form"),
         memo_group_maxid = $(".memo_group_maxid").val(),
         delete_flg = 1;
-    if ($(".memo_group_create_form").prev()[0] !== undefined) {
-        group_id = $(".memo_group_create_form").prev()[0].id.slice(15);
-        if (group_id.indexOf("C") == -1) {
-            ++group_id;
-        } else {
-            group_id = group_id.slice(1);
-            ++group_id;
-            group_id = "C" + group_id;
-        }
-    } else {
+    if (group_id.indexOf("C") == -1) {
         group_id = "C" + 0;
+    } else {
+        group_id = group_id.slice(1);
+        ++group_id;
+        group_id = "C" + group_id;
     }
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
@@ -388,23 +383,24 @@ function enterDroppable_memogroup_create(elem, ball_target) {
             delete_flg: delete_flg
         }
     }).done(function() {
-        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '" data-target="#memo_group_list' + group_id + '" data-toggle="memo_group_list"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_create">');
+        $('.memo_group_create_form').replaceWith('<div class="memo_group_list" id="memo_group_list' + group_id + '" data-target="#memo_group_list' + group_id + '" data-toggle="memo_group_list"><div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '">' + memo_text + '</div><input type="hidden" value="' + memo_id + '"></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create"></div><input type="hidden" class="memo_group_create_form" name="memo_group_create">');
         $('.memo').off();
         // 新規追加時のメモグループを表示する
     }).fail(function() {});
 }
 
 /// 長押しを検知する閾値
-var LONGPRESS = 1500;
+var LONGPRESS = 500;
 /// 長押し実行タイマーのID
 var timerId;
 
 /// 長押し・ロングタップを検知する
-$('.memo_group_list').on("mousedown touchstart", function() {
+$(document).on("mousedown touchstart", '.memo_group_list', function() {
     var $target_modal = $(this).data("target");
     timerId = setTimeout(function() {
         var ball = document.querySelector($target_modal),
             group_id = ball.id.slice(15),
+            group_max_id = $(".memo_group_create_form").prev()[0].id.slice(16),
             delete_group_flg = 1;
         /// 長押し時（Longpress）のコード
         $(".memo_edit_process").fadeIn();
@@ -422,7 +418,8 @@ $('.memo_group_list').on("mousedown touchstart", function() {
                 url: '../ajax_edit_memo.php',
                 dataType: 'text',
                 data: {
-                    ball_id: group_id,
+                    group_id: group_id,
+                    group_max_id: group_max_id,
                     delete_group_flg: delete_group_flg
                 }
             }).done(function() {

@@ -178,13 +178,28 @@ if (isset($_POST)) {
     }
   }
   if ($_POST["delete_group_flg"]) {
+    $id = $_POST["group_id"];
+    if (substr($_POST["group_id"], 0, 1) == "C") {
+      $id = substr($_POST["group_id"], 1);
+      _debug($id);
+      $max_id = $_POST["group_max_id"];
+      _debug($max_id);
+      $id = $id - $max_id;
+      $dbh = db_connect();
+      $sql = "SELECT max(id) FROM memo_group";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $group_max_id = $stmt->fetchAll();
+      $id = $group_max_id[0]['max(id)'] + $id;
+    }
+    _debug($id);
     try {
       $dbh = db_connect();
       $sql = "DELETE FROM memo_group
-              WHERE id = :memo_id";
+              WHERE id = :id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(
-        ':memo_id' => $ball_id
+        ':id' => $id
       ));
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
