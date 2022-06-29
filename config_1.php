@@ -19,7 +19,7 @@ $error_messages = array();
 
 require('header.php');
 //グローバル変数として定義 
-_debug('', true);
+//_debug('', true);
 //_debug($flash_messages);
 global $n;
 if (empty($_POST['block'])) {

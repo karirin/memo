@@ -148,16 +148,26 @@ if (isset($_POST)) {
   }
   if ($_POST["all_memo"]) {
     try {
+      // delete_flg=2のメモ情報を取得
       $dbh = db_connect();
-      $sql = "UPDATE memo SET delete_flg = 1
+      $sql = "SELECT *
+              FROM memo WHERE delete_flg = 2";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $memo_id = $stmt->fetchAll();
+      //　すべてのメモを２回連続クリック時、メモ全削除を防止
+      if (!empty($memo_id)) {
+        $dbh = db_connect();
+        $sql = "UPDATE memo SET delete_flg = 1
               WHERE delete_flg = 0";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute();
-      $dbh = db_connect();
-      $sql = "UPDATE memo SET delete_flg = 0
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $dbh = db_connect();
+        $sql = "UPDATE memo SET delete_flg = 0
               WHERE delete_flg = 2";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute();
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+      }
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
       _debug('メモ更新失敗');
@@ -181,9 +191,7 @@ if (isset($_POST)) {
     $id = $_POST["group_id"];
     if (substr($_POST["group_id"], 0, 1) == "C") {
       $id = substr($_POST["group_id"], 1);
-      _debug($id);
       $max_id = $_POST["group_max_id"];
-      _debug($max_id);
       $id = $id - $max_id;
       $dbh = db_connect();
       $sql = "SELECT max(id) FROM memo_group";
@@ -192,7 +200,6 @@ if (isset($_POST)) {
       $group_max_id = $stmt->fetchAll();
       $id = $group_max_id[0]['max(id)'] + $id;
     }
-    _debug($id);
     try {
       $dbh = db_connect();
       $sql = "DELETE FROM memo_group
