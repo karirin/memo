@@ -12,28 +12,25 @@ for ($i = 0; $i < count($memos_id); $i++) {
     array_push($memos, $memo_class);
 }
 
-$block = pagination_block($memos);
-if (isset($block[0])) :
-    foreach ($block[$_SESSION[$n]] as $memo) :
-        if ($memo != '') :
-            $memo_user = $user->get_user();
+foreach ($memos as $memo) :
+    if ($memo != '') :
+        $memo_user = $user->get_user();
 ?>
 <div class="memo">
 
     <div class="memo_list">
         <div class="memo_text ellipsis" id="memo<?= $memo['id'] ?>"><?php if (!empty($memo['text'])) {
-                                                                                    print '' . $memo["text"] . '';
-                                                                                } ?></div>
+                                                                                print '' . $memo["text"] . '';
+                                                                            } ?></div>
         <input type="hidden" value="<?= $memo['id'] ?>">
         <?php
-                    if (!empty($memo['image'])) :
-                        print '<img src="/memo/image/' . $memo['image'] . '" class="memo_img" >';
-                    endif;
-                    ?>
+                if (!empty($memo['image'])) :
+                    print '<img src="/memo/image/' . $memo['image'] . '" class="memo_img" >';
+                endif;
+                ?>
     </div>
 </div>
 <?php endif ?>
 <?php endforeach ?>
-<?php endif ?>
 
 <?php require('../pagination.php'); ?>

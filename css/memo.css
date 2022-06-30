@@ -431,6 +431,7 @@
     position: relative;
     padding: 0.25em 1em;
     font-size: 20px;
+    text-align: center;
 }
 
 .all_memo:before,
@@ -544,8 +545,9 @@
 }
 
 .memo_group_list .memo {
-    width: 15%;
+    width: 21%;
     margin-bottom: 2rem;
+    margin: 5px 2px;
 }
 
 

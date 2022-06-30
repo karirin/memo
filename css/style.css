@@ -1712,6 +1712,10 @@ img.preview {
     width: 4rem;
 }
 
+.pagination.justify-content-center.pagination-lg {
+    height: 80px;
+}
+
 
 /* ///////////////////////// */
 

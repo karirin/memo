@@ -7,7 +7,7 @@ if (isset($block[1])) :
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center pagination-lg">
             <li class="page-item">
-                <?php if ($_SESSION[$i] == 0) : ?>
+                <?php if ($_SESSION[$n] == 0) : ?>
                 <input class="page-link first" name="block" type="submit" value="&laquo;" disabled>
                 <?php else : ?>
                 <input class="page-link" name="block" type="submit" value="&laquo;">
@@ -19,7 +19,7 @@ if (isset($block[1])) :
                 } ?>
             <li class="page-item">
             <li class="page-item">
-                <?php if ($_SESSION[$i] == $block_count - 1) : ?>
+                <?php if ($_SESSION[$n] == $block_count - 1) : ?>
                 <input class="page-link last" name="block" type="submit" value="&raquo;" disabled>
                 <?php else : ?>
                 <input class="page-link" name="block" type="submit" value="&raquo;">

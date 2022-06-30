@@ -7,7 +7,7 @@ $memo_group_maxid = get_memo_group_maxid();
 $i = 0;
 ?>
 <div class="row">
-    <div class="col-4">
+    <div class="col-3">
         <div class="all_memo">
             すべてのメモ
         </div>
@@ -24,7 +24,7 @@ $i = 0;
             メモグループを追加する
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-9">
         <?php
         $memo = new Memo(0);
         $memos = $memo->get_memos($_SESSION['user_id'], 'mymemo', 0);

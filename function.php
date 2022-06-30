@@ -95,7 +95,7 @@ function pagination_block($data)
   $block_count = ceil($data_count / 5);
   $k = 0;
   for ($i = 0; $i < $block_count; $i++) {
-    for ($j = 0; $j < 10; $j++) {
+    for ($j = 0; $j < 12; $j++) {
       if ($data_count == $k) {
         break;
       }
