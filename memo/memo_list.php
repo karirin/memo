@@ -9,7 +9,7 @@ if (isset($block[0])) :
 <div class="memo memo_area" id="memo_list<?= $memo['id'] ?>" data-target="#memo_list<?= $memo['id'] ?>"
     data-toggle="memo_list">
     <div class="memo_list memo_list<?= $memo['id'] ?>">
-        <div class="memo_text ellipsis" id="memo<?= $memo['id'] ?>"><?= $memo['text'] ?></div>
+        <div class="memo_text" id="memo<?= $memo['id'] ?>"><?= $memo['text'] ?></div>
         <input type="hidden" value="<?= $memo['id'] ?>">
         <?php
                 if (!empty($memo['image'])) :
