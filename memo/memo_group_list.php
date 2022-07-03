@@ -5,13 +5,15 @@ $memos_id = array();
 $memos_id = get_memos_id($memo_group['id']);
 $memos_id = explode(" ", $memos_id[0]["memo_id"]);
 $memos = array();
+$i = 0;
 
-for ($i = 0; $i < count($memos_id); $i++) {
-    $memo_class = new Memo($memos_id[$i]);
+for ($j = 0; $j < count($memos_id); $j++) {
+    _debug($memos_id);
+    $memo_class = new Memo($memos_id[$j]);
     $memo_class = $memo_class->get_memo();
     array_push($memos, $memo_class);
 }
-
+_debug($memos);
 foreach ($memos as $memo) :
     if ($memo != '') :
         $memo_user = $user->get_user();
@@ -23,14 +25,19 @@ foreach ($memos as $memo) :
                                                                                 print '' . $memo["text"] . '';
                                                                             } ?></div>
         <input type="hidden" value="<?= $memo['id'] ?>">
-        <?php
-                if (!empty($memo['image'])) :
-                    print '<img src="/memo/image/' . $memo['image'] . '" class="memo_img" >';
-                endif;
-                ?>
     </div>
 </div>
+<?php $i++; ?>
 <?php endif ?>
+<?php
+    if ($i == 3) {
+        print '<div class="memo_omit">・・・</div>';
+        break;
+    }
+    ?>
+<?php
+    _debug($i);
+    _debug("|||"); ?>
 <?php endforeach ?>
 
 <?php require('../pagination.php'); ?>

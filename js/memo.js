@@ -134,7 +134,7 @@ $(document).on('dblclick', '.memo', function(event) {
 
         if (!elemBelow) return;
 
-        let droppableBelow = elemBelow.closest('.memo');
+        let droppableBelow = elemBelow.closest('.memo.memo_area');
 
         if (currentDroppable != droppableBelow) {
             if (currentDroppable) { // null when we were not over a droppable before this event
@@ -142,6 +142,7 @@ $(document).on('dblclick', '.memo', function(event) {
             }
             currentDroppable = droppableBelow;
             if (currentDroppable) { // null if we're not coming over a droppable now
+                console.log(currentDroppable);
                 ball_children = document.querySelector('#' + ball.id);
                 ball_children_width = ball_children.style.width;
                 ball_children.style.width = '150px';

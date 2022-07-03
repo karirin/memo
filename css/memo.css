@@ -550,6 +550,10 @@
     margin: 5px 2px;
 }
 
+.memo_group_list .memo_omit {
+    display: inline;
+}
+
 
 /* ///////////////////////// */
 
