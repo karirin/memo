@@ -571,7 +571,8 @@
 }
 
 .memo_group_list .memo_omit {
-    display: inline;
+    display: inline-block;
+    margin-top: 1.7rem;
 }
 
 

@@ -8,12 +8,11 @@ $memos = array();
 $i = 0;
 
 for ($j = 0; $j < count($memos_id); $j++) {
-    _debug($memos_id);
     $memo_class = new Memo($memos_id[$j]);
     $memo_class = $memo_class->get_memo();
     array_push($memos, $memo_class);
 }
-_debug($memos);
+
 foreach ($memos as $memo) :
     if ($memo != '') :
         $memo_user = $user->get_user();
@@ -27,17 +26,12 @@ foreach ($memos as $memo) :
         <input type="hidden" value="<?= $memo['id'] ?>">
     </div>
 </div>
-<?php $i++; ?>
-<?php endif ?>
 <?php
+        $i++;
+    endif;
     if ($i == 3) {
         print '<div class="memo_omit">・・・</div>';
         break;
     }
-    ?>
-<?php
-    _debug($i);
-    _debug("|||"); ?>
-<?php endforeach ?>
-
-<?php require('../pagination.php'); ?>
+endforeach
+?>

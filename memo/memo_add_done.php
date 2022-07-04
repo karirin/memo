@@ -22,6 +22,18 @@ try {
     $memo_image_name = $_FILES['image_name'];
     $user_id = $_SESSION['user_id'];
 
+    // delete_flg=2のメモ情報を取得
+    $dbh = db_connect();
+    $sql = "SELECT *
+            FROM memo WHERE delete_flg = 2";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $memo_id = $stmt->fetchAll();
+    if (!empty($memo_id)) {
+        $delete_flg = 2;
+    } else {
+        $delete_flg = 0;
+    }
 
     if ($memo_text == '') {
         set_flash('danger', '投稿内容が未記入です');
@@ -41,12 +53,13 @@ try {
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
 
     $dbh = db_connect();
-    $sql = 'INSERT INTO memo(text,image,user_id,created_at) VALUES (?,?,?,?)';
+    $sql = 'INSERT INTO memo(text,image,user_id,created_at,delete_flg) VALUES (?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
     $data[] = $memo_text;
     $data[] = $memo_image_name['name'];
     $data[] = $user_id;
     $data[] = $date->format('Y-m-d H:i:s');
+    $data[] = $delete_flg;
     $stmt->execute($data);
     $dbh = null;
 

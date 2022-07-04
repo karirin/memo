@@ -19,8 +19,9 @@ $error_messages = array();
 
 require('header.php');
 //グローバル変数として定義 
-_debug('', true);
+//_debug('', true);
 //_debug($flash_messages);
+
 global $n;
 if (empty($_POST['block'])) {
   $_SESSION[$n] = 0;
@@ -36,5 +37,11 @@ if (isset($_POST['block'])) {
     default:
       $_SESSION[$n] = $_POST['block'] - 1;
       break;
+  }
+}
+if (isset($_SESSION['group_select'])) {
+  if ($_SESSION['group_select'] == 1) {
+    $_SESSION[$n] = 0;
+    $_SESSION['group_select'] = 0;
   }
 }
