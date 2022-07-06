@@ -62,12 +62,8 @@ if (isset($_POST)) {
     }
   }
   if ($_POST["group_select"]) {
-    _debug($_POST);
-    _debug($_SESSION["group_select"]);
-    $_POST['block'] = 1;
+    $_POST['block'] = '';
     $_SESSION["group_select"] = 1;
-    _debug($_POST);
-    _debug($_SESSION[$n]);
     try {
       // 全メモグループのメモ情報取得
       $dbh = db_connect();
@@ -153,6 +149,7 @@ if (isset($_POST)) {
     }
   }
   if ($_POST["all_memo"]) {
+    $_SESSION["group_select"] = 1;
     try {
       // delete_flg=2のメモ情報を取得
       $dbh = db_connect();

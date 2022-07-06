@@ -23,6 +23,7 @@ require('header.php');
 //_debug($flash_messages);
 
 global $n;
+global $o;
 if (empty($_POST['block'])) {
   $_SESSION[$n] = 0;
 }
@@ -39,9 +40,13 @@ if (isset($_POST['block'])) {
       break;
   }
 }
+
+// すべてのメモ２ページ目以降を開いていても、正常にメモグループを選択できるよう調整
 if (isset($_SESSION['group_select'])) {
   if ($_SESSION['group_select'] == 1) {
-    $_SESSION[$n] = 0;
+    $_SESSION[$o] = 0;
     $_SESSION['group_select'] = 0;
+    _debug("config_1.php  :");
+    _debug($_SESSION['group_select']);
   }
 }

@@ -2,8 +2,18 @@
 $block = array();
 $block = pagination_block($memos);
 
+// すべてのメモ２ページ目以降を開いていても、正常にメモグループを選択できるよう調整
+
+_debug("memo_list.php  :");
+_debug($_SESSION['group_select']);
+if ($_SESSION['group_select'] == 1) {
+    $i = $_SESSION[$o];
+} else {
+    $i = $_SESSION[$n];
+}
+
 if (isset($block[0])) :
-    foreach ($block[$_SESSION[$n]] as $memo) :
+    foreach ($block[$i] as $memo) :
         $memo_user = $user->get_user($memo['user_id']);
 ?>
 <div class="memo memo_area" id="memo_list<?= $memo['id'] ?>" data-target="#memo_list<?= $memo['id'] ?>"
