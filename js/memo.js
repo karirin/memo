@@ -142,7 +142,6 @@ $(document).on('dblclick', '.memo', function(event) {
             }
             currentDroppable = droppableBelow;
             if (currentDroppable) { // null if we're not coming over a droppable now
-                console.log(currentDroppable);
                 ball_children = document.querySelector('#' + ball.id);
                 ball_children_width = ball_children.style.width;
                 ball_children.style.width = '150px';
@@ -340,7 +339,12 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
     }).done(function() {
         // メモグループ更新時の処理を記載する
         // ('.memo_create_form' + group_id)のgroup_idで更新をかけるメモを指定したい
-        $('.memo_create_form' + group_id).replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create">');
+        console.log($('#memo_group_list' + group_id + ' .memo_omit:last')[0].style.display);
+        console.log(document.querySelector('#memo_group_list' + group_id + ' .memo_omit:last-child'));
+        if ($('#memo_group_list' + group_id + ' .memo_omit:last')[0].style.display != 'inline-block') {
+            $('.memo_create_form' + group_id).replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create">');
+            console.log("test");
+        }
         $('.memo').off();
     }).fail(function() {});
 }

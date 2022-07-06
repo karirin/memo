@@ -16,8 +16,8 @@
             <i class="far fa-times-circle memo_clear"></i>
         </div>
         <div class="memo_btn">
-            <button class="btn btn-outline-danger" type="submit" name="memo" value="memo" id="memo">メモ</button>
-            <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+            <button class="btn btn-outline-light" type="submit" name="memo" value="memo" id="memo">メモ</button>
+            <button class="btn btn-outline-light modal_close" type="button">キャンセル</button>
         </div>
     </form>
 </div>

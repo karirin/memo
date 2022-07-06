@@ -30,8 +30,10 @@ foreach ($memos as $memo) :
         $i++;
     endif;
     if ($i == 3) {
-        print '<div class="memo_omit">・・・</div>';
+        print '<div class="memo_omit" style="display:inline-block;">・・・</div>';
         break;
+    } else {
+        print '<div class="memo_omit" style="display:none;">・・・</div>';
     }
 endforeach
 ?>

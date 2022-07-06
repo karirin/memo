@@ -482,6 +482,23 @@
     padding: 0;
 }
 
+.page-link {
+    background-color: unset;
+}
+
+.page-link:hover {
+    background-color: #eee2d4;
+    color: #000;
+}
+
+.pagination.justify-content-center .page-item .page-link.first:disabled {
+    background-color: #eee2d4;
+}
+
+.pagination.justify-content-center .page-item .page-link.last:disabled {
+    background-color: #eee2d4;
+}
+
 
 /* ///////////////////////// */
 
@@ -596,6 +613,18 @@
 
 
 /* ///////////////////////// */
+
+.memo_process {
+    background-image: url("../image/paper_00108.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #121212;
+    border: unset;
+}
+
+.memo_process .textarea.form-control {
+    background-color: unset;
+}
 
 .before_text {
     background-color: #ff54542e;

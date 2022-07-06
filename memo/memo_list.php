@@ -3,9 +3,6 @@ $block = array();
 $block = pagination_block($memos);
 
 // すべてのメモ２ページ目以降を開いていても、正常にメモグループを選択できるよう調整
-
-_debug("memo_list.php  :");
-_debug($_SESSION['group_select']);
 if ($_SESSION['group_select'] == 1) {
     $i = $_SESSION[$o];
 } else {
