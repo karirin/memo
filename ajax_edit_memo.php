@@ -62,7 +62,6 @@ if (isset($_POST)) {
     }
   }
   if ($_POST["group_select"]) {
-    $_POST['block'] = '';
     $_SESSION["group_select"] = 1;
     try {
       // 全メモグループのメモ情報取得
@@ -89,7 +88,7 @@ if (isset($_POST)) {
           // 異なる場合はdelete_flgを2に更新
           $dbh = db_connect();
           $sql = "UPDATE memo
-                SET delete_flg = 2 
+                SET delete_flg = 1
                 WHERE id = :id";
           $stmt = $dbh->prepare($sql);
           $stmt->execute(array(
@@ -151,25 +150,76 @@ if (isset($_POST)) {
   if ($_POST["all_memo"]) {
     $_SESSION["group_select"] = 1;
     try {
-      // delete_flg=2のメモ情報を取得
+      // // delete_flg=2のメモ情報を取得
+      // $dbh = db_connect();
+      // $sql = "SELECT *
+      //         FROM memo WHERE delete_flg = 2";
+      // $stmt = $dbh->prepare($sql);
+      // $stmt->execute();
+      // $memo_id = $stmt->fetchAll();
+      // //　すべてのメモを２回連続クリック時、メモ全削除を防止
+      // if (!empty($memo_id)) {
+      //   $dbh = db_connect();
+      //   $sql = "UPDATE memo SET delete_flg = 1
+      //         WHERE delete_flg = 0";
+      //   $stmt = $dbh->prepare($sql);
+      //   $stmt->execute();
+      //   $dbh = db_connect();
+      //   $sql = "UPDATE memo SET delete_flg = 0
+      //         WHERE delete_flg = 2";
+      //   $stmt = $dbh->prepare($sql);
+      //   $stmt->execute();
+      // } else {
+      //   $dbh = db_connect();
+      //   $sql = "UPDATE memo SET delete_flg = 1
+      //         WHERE delete_flg = 0";
+      //   $stmt = $dbh->prepare($sql);
+      //   $stmt->execute();
+      // }
+
+      // 全メモ情報を取得
       $dbh = db_connect();
-      $sql = "SELECT *
-              FROM memo WHERE delete_flg = 2";
+      $sql = "SELECT id
+          FROM memo";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $all_memo_id = $stmt->fetchAll();
+
+      // 全メモグループのメモ情報取得
+      $dbh = db_connect();
+      $sql = "SELECT memo_id
+              FROM memo_group";
       $stmt = $dbh->prepare($sql);
       $stmt->execute();
       $memo_id = $stmt->fetchAll();
-      //　すべてのメモを２回連続クリック時、メモ全削除を防止
-      if (!empty($memo_id)) {
-        $dbh = db_connect();
-        $sql = "UPDATE memo SET delete_flg = 1
-              WHERE delete_flg = 0";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $dbh = db_connect();
-        $sql = "UPDATE memo SET delete_flg = 0
-              WHERE delete_flg = 2";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
+      $memos_id = array();
+      for ($i = 0; $i < count($memo_id); $i++) {
+        $memos_id .= $memo_id[$i]['memo_id'];
+      }
+
+      for ($i = 0; $i < count($all_memo_id); $i++) {
+        // メモグループのメモ情報か判断
+        if (strpos($memos_id, $all_memo_id[$i]['id']) === false) {
+          // メモグループ以外のメモ情報ならdelete_flgを0に更新
+          $dbh = db_connect();
+          $sql = "UPDATE memo
+                SET delete_flg = 0
+                WHERE id = :id";
+          $stmt = $dbh->prepare($sql);
+          $stmt->execute(array(
+            ':id' => $all_memo_id[$i]['id']
+          ));
+        } else {
+          // メモグループのメモ情報ならdelete_flgを1に更新
+          $dbh = db_connect();
+          $sql = "UPDATE memo
+                          SET delete_flg = 1
+                          WHERE id = :id";
+          $stmt = $dbh->prepare($sql);
+          $stmt->execute(array(
+            ':id' => $all_memo_id[$i]['id']
+          ));
+        }
       }
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
