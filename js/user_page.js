@@ -358,7 +358,7 @@ $('#memo_process_counter').on('input', function() {
     if (count > 300) {
         $('.memo_process_count').css('color', '#FF7763');
     } else {
-        $('.memo_process_count').css('color', '#FFF');
+        $('.memo_process_count').css('color', '#000');
     }
 });
 

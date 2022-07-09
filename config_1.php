@@ -46,7 +46,5 @@ if (isset($_SESSION['group_select'])) {
   if ($_SESSION['group_select'] == 1) {
     $_SESSION[$o] = 0;
     $_SESSION['group_select'] = 0;
-    _debug("config_1.php  :");
-    _debug($_SESSION['group_select']);
   }
 }

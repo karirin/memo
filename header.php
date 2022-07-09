@@ -22,7 +22,7 @@
             <li class="header_menu memo_modal"><a href="#">memo</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
             <li class="show_menu">menu
-            <li class="slide_menu_message"><i class="far fa-question-circle"></i></li>
+            <li class="slide_menu_message question"><i class="far fa-question-circle"></i></li>
             <div class="slide_menu">
                 <a class="modal_close" href="#">
                     <p><i class="fas fa-angle-left"></i></p>

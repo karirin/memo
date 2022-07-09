@@ -63,6 +63,11 @@ ul.main_ul li:hover {
     border-radius: 1rem;
 }
 
+ul.main_ul li.question:hover {
+    background-color: unset;
+    opacity: 0.3;
+}
+
 ul li.top_link {
     margin-right: auto;
 }

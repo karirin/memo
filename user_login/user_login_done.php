@@ -46,7 +46,7 @@ try {
 			$_SESSION['login'] = 1;
 			$_SESSION['user_id'] = $rec['id'];
 			$_SESSION['user_name'] = $rec['name'];
-
+			$_SESSION['group_select'] = 1;
 			set_flash('sucsess', 'ログインしました');
 			header('Location:../user_login/user_top.php');
 			exit();

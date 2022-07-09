@@ -12,8 +12,12 @@ $i = 0;
             すべてのメモ
         </div>
         <?php foreach ($memo_groups as $memo_group) : ?>
+
         <div class="memo_group_list" id="memo_group_list<?= $memo_group['id'] ?>"
             data-target="#memo_group_list<?= $memo_group['id'] ?>" data-toggle="memo_group_list">
+            <?php if ($memo_group['title'] == '') : ?>
+            <div><?= $memo_group['title'] ?></div>
+            <?php endif; ?>
             <?php require('memo_group_list.php'); ?>
             <input type="hidden" class="memo_create_form<?= $memo_group['id']; ?>" name="memo_create">
         </div>

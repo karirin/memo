@@ -24,6 +24,7 @@
     width: 200px;
     margin: 5px;
     vertical-align: top;
+    /* border: solid 1px #999999; */
 }
 
 .memo .memo_list {
@@ -581,6 +582,13 @@
     margin-right: 0.5rem;
 }
 
+.memo_group_list {
+    background: rgb(253 235 200 / 30%);
+    padding: 5px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
 .memo_group_list .memo {
     width: 21%;
     margin-bottom: 2rem;
@@ -589,7 +597,7 @@
 
 .memo_group_list .memo_omit {
     display: inline-block;
-    margin-top: 1.7rem;
+    margin-top: 1rem;
 }
 
 
@@ -620,6 +628,10 @@
     background-size: 100%;
     color: #121212;
     border: unset;
+}
+
+.memo_process .memo_process_count {
+    color: #000;
 }
 
 .memo_process .textarea.form-control {

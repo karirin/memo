@@ -67,7 +67,6 @@ $(document).on('click', '.memo_group_list', function() {
             group_max_id: group_max_id
         }
     }).done(function() {
-        console.log("wwww");
         location.reload();
         // /$("#edit_" + $target_id).replaceWith('<div class="memo_text ellipsis" id="' + $target_id + '" data-target="' + $target_modal + '" data-toggle="memo">' + edit_memo_text + '</div>');
     }).fail(function() {});
@@ -298,9 +297,11 @@ function enterDroppable(elem, ball_target, text_flg) {
         }
     }).done(function() {
         if (text_flg == 0) {
-            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + ball_text + memo_text + '</div>');
+            $(".memo_area #memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + ball_text + memo_text + '</div>');
+            $(".memo_group_list #memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + ball_text + memo_text + '</div>');
         } else {
-            $("#memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + ball_text + '</div>');
+            $(".memo_area #memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + ball_text + '</div>');
+            $(".memo_group_list #memo" + memo_id).replaceWith('<div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + ball_text + '</div>');
         }
     }).fail(function() {});
     $('.memo').off();
@@ -340,11 +341,8 @@ function enterDroppable_memogroup(elem, ball_target, memo_group_list) {
     }).done(function() {
         // メモグループ更新時の処理を記載する
         // ('.memo_create_form' + group_id)のgroup_idで更新をかけるメモを指定したい
-        if ($('#memo_group_list' + group_id + ' .memo_omit:last')[0] == '') {
+        if ($('#memo_group_list' + group_id + ' .memo_omit:last')[0] === undefined || $('#memo_group_list' + group_id + ' .memo_omit:last')[0].style.display != 'inline-block') {
             $('.memo_create_form' + group_id).replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create">');
-        } else if ($('#memo_group_list' + group_id + ' .memo_omit:last')[0].style.display != 'inline-block') {
-            $('.memo_create_form' + group_id).replaceWith('<div class="memo"><div class="memo_list"><div class="memo_text ellipsis" id="memo' + memo_id + '" data-target="#memo' + memo_id + '" data-toggle="memo" >' + memo_text + '</div></div></div><input type="hidden" class="memo_create_form' + group_id + '" name="memo_create">');
-            console.log("test");
         }
         $('.memo').off();
     }).fail(function() {});
@@ -376,6 +374,7 @@ function enterDroppable_memogroup_create(elem, ball_target) {
         ++group_id;
         group_id = "C" + group_id;
     }
+    console.log(group_id);
     $(".memo_edit_process").fadeOut();
     $(".modal_memo").fadeOut();
     $.ajax({
