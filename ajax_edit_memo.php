@@ -184,7 +184,7 @@ if (isset($_POST)) {
       $stmt = $dbh->prepare($sql);
       $stmt->execute();
       $all_memo_id = $stmt->fetchAll();
-
+      _debug($all_memo_id);
       // 全メモグループのメモ情報取得
       $dbh = db_connect();
       $sql = "SELECT memo_id
@@ -196,10 +196,10 @@ if (isset($_POST)) {
       for ($i = 0; $i < count($memo_id); $i++) {
         $memos_id .= $memo_id[$i]['memo_id'];
       }
-
+      _debug($memos_id);
       for ($i = 0; $i < count($all_memo_id); $i++) {
         // メモグループのメモ情報か判断
-        if (strpos($memos_id, $all_memo_id[$i]['id']) === false) {
+        if (empty($memos_id) || strpos($memos_id, $all_memo_id[$i]['id']) === false) {
           // メモグループ以外のメモ情報ならdelete_flgを0に更新
           $dbh = db_connect();
           $sql = "UPDATE memo
@@ -209,6 +209,7 @@ if (isset($_POST)) {
           $stmt->execute(array(
             ':id' => $all_memo_id[$i]['id']
           ));
+          _debug("test1");
         } else {
           // メモグループのメモ情報ならdelete_flgを1に更新
           $dbh = db_connect();
@@ -219,10 +220,11 @@ if (isset($_POST)) {
           $stmt->execute(array(
             ':id' => $all_memo_id[$i]['id']
           ));
+          _debug("test2");
         }
       }
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "../php/error.log");
       _debug('メモ更新失敗');
     }
   }
@@ -241,19 +243,77 @@ if (isset($_POST)) {
     }
   }
   if ($_POST["delete_group_flg"]) {
-    $id = $_POST["group_id"];
-    if (substr($_POST["group_id"], 0, 1) == "C") {
-      $id = substr($_POST["group_id"], 1);
-      $max_id = $_POST["group_max_id"];
-      $id = $id - $max_id;
+    try {
+      // 全メモ情報を取得
       $dbh = db_connect();
-      $sql = "SELECT max(id) FROM memo_group";
+      $sql = "SELECT id
+          FROM memo";
       $stmt = $dbh->prepare($sql);
       $stmt->execute();
-      $group_max_id = $stmt->fetchAll();
-      $id = $group_max_id[0]['max(id)'] + $id;
-    }
-    try {
+      $all_memo_id = $stmt->fetchAll();
+
+      // 全メモグループのメモ情報取得
+      $dbh = db_connect();
+      $sql = "SELECT memo_id
+              FROM memo_group";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $memo_id = $stmt->fetchAll();
+      $memos_id = array();
+      for ($i = 0; $i < count($memo_id); $i++) {
+        $memos_id .= $memo_id[$i]['memo_id'];
+      }
+
+      // 選択されたメモグループからメモ情報を取得
+      $id = $_POST["group_id"];
+      if (substr($_POST["group_id"], 0, 1) == "C") {
+        $id = substr($_POST["group_id"], 1);
+        $max_id = $_POST["group_max_id"];
+        $id = $id - $max_id;
+        $dbh = db_connect();
+        $sql = "SELECT max(id) FROM memo_group";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $group_max_id = $stmt->fetchAll();
+        $id = $group_max_id[0]['max(id)'] + $id;
+      }
+
+      $dbh = db_connect();
+      $sql = "SELECT memo_id FROM memo_group
+              WHERE id = :id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(
+        ':id' => $group_id
+      ));
+      $memo_group_id = $stmt->fetch();
+
+      for ($i = 0; $i < count($all_memo_id); $i++) {
+        // メモグループのメモ情報か判断
+        if (strpos($memos_id, $all_memo_id[$i]['id']) === false) {
+          // 選択されたメモグループのメモ情報であればdelete_flgを0に更新
+          if (strpos($memo_group_id, $all_memo_id[$i]['id']) === true) {
+            $dbh = db_connect();
+            $sql = "UPDATE memo
+                SET delete_flg = 0
+                WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+              ':id' => $all_memo_id[$i]['id']
+            ));
+          }
+        } else {
+          // メモグループのメモ情報ならdelete_flgを1に更新
+          $dbh = db_connect();
+          $sql = "UPDATE memo
+                          SET delete_flg = 1
+                          WHERE id = :id";
+          $stmt = $dbh->prepare($sql);
+          $stmt->execute(array(
+            ':id' => $all_memo_id[$i]['id']
+          ));
+        }
+      }
+
       $dbh = db_connect();
       $sql = "DELETE FROM memo_group
               WHERE id = :id";

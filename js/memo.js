@@ -428,8 +428,7 @@ $(document).on("mousedown touchstart", '.memo_group_list', function() {
                     delete_group_flg: delete_group_flg
                 }
             }).done(function() {
-                console.log($($target_modal)[0]);
-                $($target_modal)[0].style.display = 'none';
+                location.reload();
             }).fail(function() {});
         });
     }, LONGPRESS);
