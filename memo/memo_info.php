@@ -21,7 +21,6 @@
         <p class="memo_content"><?= nl2br($memo['text']) ?></p>
         <form action="../memo/memo_delete_done.php" method="post">
             <input type="hidden" name="id" value="<?= $memo['id'] ?>">
-            <input type="hidden" name="image_name" value="<?= $memo['image'] ?>">
             <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
             <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
         </form>

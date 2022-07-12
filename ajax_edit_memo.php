@@ -3,7 +3,7 @@ require_once('config_2.php');
 if (isset($_POST)) {
   $memo_id = $_POST["memo_id"];
   $memo_text = $_POST["memo_text"];
-  $ball_id = $_POST['ball_id'];
+  $memo_target_id = $_POST['memo_target_id'];
   try {
     $dbh = db_connect();
     $sql = "UPDATE memo
@@ -50,6 +50,7 @@ if (isset($_POST)) {
   if ($_POST["memo_group_create"]) {
     try {
       $memo_id = $_POST["memo_group_id"];
+      _debug($memo_id);
       $dbh = db_connect();
       $sql = "insert into memo_group(memo_id) values(:memo_id)";
       $stmt = $dbh->prepare($sql);
@@ -184,7 +185,6 @@ if (isset($_POST)) {
       $stmt = $dbh->prepare($sql);
       $stmt->execute();
       $all_memo_id = $stmt->fetchAll();
-      _debug($all_memo_id);
       // 全メモグループのメモ情報取得
       $dbh = db_connect();
       $sql = "SELECT memo_id
@@ -196,7 +196,6 @@ if (isset($_POST)) {
       for ($i = 0; $i < count($memo_id); $i++) {
         $memos_id .= $memo_id[$i]['memo_id'];
       }
-      _debug($memos_id);
       for ($i = 0; $i < count($all_memo_id); $i++) {
         // メモグループのメモ情報か判断
         if (empty($memos_id) || strpos($memos_id, $all_memo_id[$i]['id']) === false) {
@@ -232,10 +231,10 @@ if (isset($_POST)) {
     try {
       $dbh = db_connect();
       $sql = "UPDATE memo SET delete_flg = 1
-              WHERE id = :memo_id";
+              WHERE id = :memo_target_id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(
-        ':memo_id' => $ball_id
+        ':memo_target_id' => $memo_target_id
       ));
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");

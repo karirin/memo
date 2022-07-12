@@ -333,6 +333,7 @@ nav.navbar.navbar-light.mb-2 {
     height: 0.01rem;
     font-weight: bold;
     margin-left: 2rem;
+    padding-bottom: 0.5rem;
 }
 
 
@@ -1719,6 +1720,7 @@ img.preview {
 
 .pagination.justify-content-center.pagination-lg {
     height: 80px;
+    padding-right: 4rem;
 }
 
 

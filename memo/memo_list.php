@@ -18,11 +18,6 @@ if (isset($block[0])) :
     <div class="memo_list memo_list<?= $memo['id'] ?>">
         <div class="memo_text" id="memo<?= $memo['id'] ?>"><?= $memo['text'] ?></div>
         <input type="hidden" value="<?= $memo['id'] ?>">
-        <?php
-                if (!empty($memo['image'])) :
-                    print '<img src="/memo/image/' . $memo['image'] . '" class="memo_img" >';
-                endif;
-                ?>
         <div id="memo_info<?= $memo['id'] ?>">
             <?php require('memo_info.php'); ?>
             <p class="memo_created_at"><?php print '' . convert_to_fuzzy_time($memo['created_at']) . ''; ?></p>
