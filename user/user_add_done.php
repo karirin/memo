@@ -27,7 +27,7 @@ try {
     $_SESSION['user_name'] = $current_user['name'];
     header('Location:../user_login/user_top.php?page_id=' . $current_user['id'] . '&type=main');
 } catch (Exception $e) {
-    error_log($e, 3, "../../../php/error.log");
+    //    error_log($e, 3, "../../../php/error.log");
     _debug('ユーザー追加失敗');
     exit();
 }
