@@ -9,7 +9,7 @@ function db_connect()
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
   } else {
-    $dsn = 'mysql:dbname=heroku_9791d250e1037e;host=us-cdbr-east-06.cleardb.net;charset=utf8';
+    $dsn = 'mysql:dbname=heroku_9791d250e1037e3;host=us-cdbr-east-06.cleardb.net;charset=utf8';
     $user = 'bf902765a36179';
     $password = '52827b7c';
     $dbh = new PDO($dsn, $user, $password);
