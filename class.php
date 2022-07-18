@@ -188,7 +188,7 @@ class User
       $stmt->execute(array(':name' => $user_name));
       return  $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      //error_log($e, 3, "../../php/error.log");
       _debug('ユーザー確認失敗');
     }
   }
