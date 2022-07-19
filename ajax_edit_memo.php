@@ -50,7 +50,6 @@ if (isset($_POST)) {
   if ($_POST["memo_group_create"]) {
     try {
       $memo_id = $_POST["memo_group_id"];
-      _debug($memo_id);
       $dbh = db_connect();
       $sql = "insert into memo_group(memo_id) values(:memo_id)";
       $stmt = $dbh->prepare($sql);

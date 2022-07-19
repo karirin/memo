@@ -325,6 +325,12 @@ function enterDroppable_memogroup(elem, memo_target, memo_group_list) {
             group_max_id: group_max_id,
             memo_group_id: memo_group_id,
             memo_group_list: memo_group_list,
+            memo_id: '',
+            memo_text: '',
+            memo_group_create: '',
+            group_select: '',
+            all_memo: '',
+            delete_group_flg: '',
             delete_flg: delete_flg
         }
     }).done(function() {
