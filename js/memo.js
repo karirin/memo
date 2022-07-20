@@ -1,5 +1,5 @@
 // メモ入力処理
-$(document).on('click', '.fa-edit', function() {
+$(document).on('click ontouchstart', '.fa-edit', function() {
     var $target_modal = $(this).data("target"),
         $target_id = $target_modal.slice(1),
         memo_text = $($target_modal).text();
@@ -23,7 +23,7 @@ $(document).on('click', '.fa-edit', function() {
 });
 
 // いいね機能処理
-$(document).on('click', '.favorite_btn', function(e) {
+$(document).on('click ontouchstart', '.favorite_btn', function(e) {
     e.stopPropagation();
     var memo_id = $(this).prev().val(),
         memo_star = $("#star_" + memo_id);
@@ -44,7 +44,7 @@ $(document).on('click', '.favorite_btn', function(e) {
 });
 
 // メモグループクリック時
-$(document).on('click', '.memo_group_list', function() {
+$(document).on('click ontouchstart', '.memo_group_list', function() {
     var memo_target = $(this).data("target"),
         memo = document.querySelector(memo_target),
         group_id = memo.id.slice(15),
@@ -65,7 +65,7 @@ $(document).on('click', '.memo_group_list', function() {
 });
 
 // すべてのメモクリック時
-$(document).on('click', '.all_memo', function() {
+$(document).on('click ontouchstart', '.all_memo', function() {
     var all_memo = 1;
     $.ajax({
         type: 'POST',
@@ -80,11 +80,11 @@ $(document).on('click', '.all_memo', function() {
 });
 
 // すべてのメモクリック時
-$(document).on('click', '.far.fa-question-circle', function() {
+$(document).on('click ontouchstart', '.far.fa-question-circle', function() {
     $(".modal_memo").fadeIn();
     $(".far.fa-times-circle.memo_clear").fadeIn();
     $(".memo_helpdisp").fadeIn();
-    $(document).on('click', '.far.fa-times-circle.memo_clear', function() {
+    $(document).on('click ontouchstart', '.far.fa-times-circle.memo_clear', function() {
         $(".modal_memo").fadeOut();
         $(".memo_helpdisp").fadeOut();
     });
