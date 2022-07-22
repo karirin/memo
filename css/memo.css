@@ -678,3 +678,9 @@
         background-size: 180%;
     }
 }
+
+@media screen and (max-width: 330px) {
+    .memo_top {
+        background-size: 540%;
+    }
+}

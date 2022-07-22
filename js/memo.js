@@ -149,7 +149,7 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                     memo_id = memo.id.slice(9);
                     memo_info_children = document.querySelector('#memo_info' + memo_id);
                     memo_info_children.style.display = 'none';
-                    $('.memo').on('mouseup', function(event) {
+                    $('.memo').on('mouseup touchend', function(event) {
                         let memo_id = currentDroppable.id.slice(9),
                             memo_text = $("#memo" + memo_id).text(),
                             memo_target = $(this).data("target"),
@@ -162,17 +162,17 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                         $(".memo_edit_process").fadeIn();
                         $(".modal_memo").fadeIn();
                         $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモを前後どちらに追加しますか？</h2><p class="modal_memo_text before_text">' + memo_target_text + '</p><p>' + memo_text + '</p><p class="modal_memo_text after_text">' + memo_target_text + '</p><div class="right"><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-                        $('.modal_close').on('click', function(event) {
+                        $('.modal_close').on('click ontouchstart', function(event) {
                             $(".memo_edit_process").fadeOut();
                             $(".modal_memo").fadeOut();
                             memo.style.display = 'block';
                             $('.memo').off();
                         });
-                        $('.before_text').one('click', function() {
+                        $('.before_text').one('click ontouchstart', function() {
                             text_flg = 0;
                             enterDroppable(currentDroppable, memo_target, text_flg);
                         });
-                        $('.after_text').one('click', function() {
+                        $('.after_text').one('click ontouchstart', function() {
                             text_flg = 1;
                             enterDroppable(currentDroppable, memo_target, text_flg);
                         });
@@ -194,7 +194,7 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                     memo_id = memo.id.slice(9);
                     memo_info_children = document.querySelector('#memo_info' + memo_id);
                     memo_info_children.style.display = 'none';
-                    $('.memo').on('mouseup', function() {
+                    $('.memo').on('mouseup touchend', function() {
                         var memo_target = $(this).data("target"),
                             memo = document.querySelector(memo_target),
                             memo_group_id = memo.id.slice(9) + " ",
@@ -203,13 +203,13 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                         $(".memo_edit_process").fadeIn();
                         $(".modal_memo").fadeIn();
                         $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループに追加しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-                        $('.modal_close').on('click', function(event) {
+                        $('.modal_close').on('click ontouchstart', function(event) {
                             $(".memo_edit_process").fadeOut();
                             $(".modal_memo").fadeOut();
                             memo.style.display = 'block';
                             $('.memo').off();
                         });
-                        $('.ok_btn').one('click', function() {
+                        $('.ok_btn').one('click ontouchstart', function() {
                             memo_group_list = 1;
                             enterDroppable_memogroup(currentDroppable_memogroup, memo_target, memo_group_list);
                         });
@@ -230,7 +230,7 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                     memo_id = memo.id.slice(9);
                     memo_info_children = document.querySelector('#memo_info' + memo_id);
                     memo_info_children.style.display = 'none';
-                    $('.memo').on('mouseup', function() {
+                    $('.memo').on('mouseup touchend', function() {
                         var memo_target = $(this).data("target"),
                             memo = document.querySelector(memo_target),
                             memo_group_id = memo.id.slice(9) + " ",
@@ -240,13 +240,13 @@ $(document).on('click ontouchstart', '.memo', function(event) {
                         $(".memo_edit_process").fadeIn();
                         $(".modal_memo").fadeIn();
                         $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">メモグループを新規作成しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-                        $('.modal_close').on('click', function(event) {
+                        $('.modal_close').on('click ontouchstart', function(event) {
                             $(".memo_edit_process").fadeOut();
                             $(".modal_memo").fadeOut();
                             memo.style.display = 'block';
                             $('.memo').off();
                         });
-                        $('.ok_btn').one('click', function() {
+                        $('.ok_btn').one('click ontouchstart', function() {
                             enterDroppable_memogroup_create(currentDroppable_memogroup_create, memo_target);
                         });
                     });
@@ -254,10 +254,11 @@ $(document).on('click ontouchstart', '.memo', function(event) {
             }
         }
 
-        document.addEventListener('mousemove touchmove', onMouseMove);
+        document.addEventListener('mousemove', onMouseMove);
+
 
         memo.onmouseup = function() {
-            document.removeEventListener('mousemove touchmove', onMouseMove);
+            document.removeEventListener('mousemove', onMouseMove);
             memo.onmouseup = null;
         };
     }
@@ -417,11 +418,11 @@ $(document).on("mousedown touchstart", '.memo_group_list', function() {
         $(".memo_edit_process").fadeIn();
         $(".modal_memo").fadeIn();
         $(".modal_edit_process").replaceWith('<div class="modal_edit_process"><h2 class="memo_title">こちらのメモグループを削除しますか？</h2><div class="right"><button class="btn ok_btn" type="button">OK</button><button class="btn memo_close modal_close" type="button">キャンセル</button></div></div>');
-        $('.modal_close').on('click', function(event) {
+        $('.modal_close').on('click ontouchstart', function(event) {
             $(".memo_edit_process").fadeOut();
             $(".modal_memo").fadeOut();
         });
-        $('.ok_btn').one('click', function() {
+        $('.ok_btn').one('click ontouchstart', function() {
             $(".memo_edit_process").fadeOut();
             $(".modal_memo").fadeOut();
             $.ajax({
@@ -443,7 +444,7 @@ $(document).on("mousedown touchstart", '.memo_group_list', function() {
 });
 
 // チュートリアル内の矢印処理
-$(document).on('click', '.fas.fa-angle-left', function() {
+$(document).on('click ontouchstart', '.fas.fa-angle-left', function() {
     if ($('.memoadd_helpdisp').css('display') == 'block') {
         $('.memoadd_helpdisp').css('display', 'none');
         $('.memodrag_helpdisp').css('display', 'block');
@@ -453,7 +454,7 @@ $(document).on('click', '.fas.fa-angle-left', function() {
     }
 });
 
-$(document).on('click', '.fas.fa-angle-right', function() {
+$(document).on('click ontouchstart', '.fas.fa-angle-right', function() {
     if ($('.memodrag_helpdisp').css('display') == 'block') {
         $('.memodrag_helpdisp').css('display', 'none');
         $('.memoadd_helpdisp').css('display', 'block');
