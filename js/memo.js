@@ -445,23 +445,13 @@ $(document).on("mousedown touchstart", '.memo_group_list', function() {
 
 // チュートリアル内の矢印処理
 $(document).on('click ontouchstart', '.fas.fa-angle-left', function() {
-    if ($('.memoadd_helpdisp').css('display') == 'block') {
-        $('.memoadd_helpdisp').css('display', 'none');
-        $('.memodrag_helpdisp').css('display', 'block');
-    } else if ($('.memogroup_helpdisp').css('display') == 'block') {
-        $('.memogroup_helpdisp').css('display', 'none');
-        $('.memoadd_helpdisp').css('display', 'block');
-    }
+    $('.memoadd_helpdisp').css('display', 'none');
+    $('.memodrag_helpdisp').css('display', 'block');
 });
 
 $(document).on('click ontouchstart', '.fas.fa-angle-right', function() {
-    if ($('.memodrag_helpdisp').css('display') == 'block') {
-        $('.memodrag_helpdisp').css('display', 'none');
-        $('.memoadd_helpdisp').css('display', 'block');
-    } else if ($('.memoadd_helpdisp').css('display') == 'block') {
-        $('.memoadd_helpdisp').css('display', 'none');
-        $('.memogroup_helpdisp').css('display', 'block');
-    }
+    $('.memodrag_helpdisp').css('display', 'none');
+    $('.memoadd_helpdisp').css('display', 'block');
 });
 
 if (memo != null) {

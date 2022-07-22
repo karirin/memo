@@ -6,8 +6,8 @@ if (isset($_SESSION['login']) == false) :
 
 <body class="top">
     <div class="description">
-        ペアコードはエンジニアとマッチできるサイトです。<br>
-        気になるエンジニアとマッチングしてメッセージなどで情報共有することができます。
+        自由にメモを書いたり、管理できるサイトです。<br>
+        お気に入りのメモをグループ毎に仕分けすることなどができます。
     </div>
     <form method="post" action="user_login_done.php">
         <div class="flex_btn margin_top">

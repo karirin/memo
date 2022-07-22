@@ -25,9 +25,6 @@
     <div class="memoadd_helpdisp">
         <p class="memoadd_title">メモの追加</p>
     </div>
-    <div class="memogroup_helpdisp">
-        <p class="memogroup_title">メモグループ</p>
-    </div>
     <i class="fas fa-angle-left"></i>
     <i class="fas fa-angle-right"></i>
 </div>
